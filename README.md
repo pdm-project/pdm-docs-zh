@@ -2,7 +2,7 @@
 
 PDM 中文文档（社区维护）
 
-[📖 查看文档](https://pdm-project.org/zh)
+[📖 查看文档](https://pdm-project.org/zh-cn/)
 
 ## 维护者
 
