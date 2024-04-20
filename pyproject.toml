@@ -1,0 +1,28 @@
+[project]
+name = "pdm-docs-zh"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Frost Ming", email = "me@frostming.com"},
+]
+dependencies = []
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "CC-BY-4.0"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+doc = [
+    "mkdocs>=1.1",
+    "mkdocs-material>=7.3",
+    "mkdocstrings[python]>=0.18",
+    "setuptools>=62.3.3",
+    "markdown-exec>=0.7.0",
+    "mkdocs-version-annotations>=1.0.0",
+    "-e git+https://github.com/pdm-project/pdm.git@main#egg=pdm",
+]
+
+[tool.pdm.scripts]
+doc = "mkdocs serve"
