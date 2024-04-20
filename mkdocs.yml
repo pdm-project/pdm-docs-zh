@@ -113,7 +113,7 @@ extra:
       link: /en/
       lang: en
     - name: '🇨🇳 简体中文'
-      link: /zh/
+      link: /zh-cn/
       lang: zh
 
 extra_css:
