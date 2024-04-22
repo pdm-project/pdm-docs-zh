@@ -180,7 +180,7 @@ pdm lock --exclude-newer 2024-01-01
 
 ## 设置可接受的锁定或安装格式
 
-如果要控制软件包的格式（二进制格式 `binary`/源码分发格式 `sdist`），可以设置环境变量 `PDM_NO_BINARY` 和 `PDM_ONLY_BINARY`。
+如果要控制软件包的格式（二进制格式 `binary`/源码分发格式 `sdist`），可以设置环境变量 `PDM_NO_BINARY`，`PDM_ONLY_BINARY`  和 `PDM_PREFER_BINARY`。
 
 每个 env var 都是一个以逗号分隔的包名列表。您可以将其 `:all:` 设置为应用于所有包。例如：
 
@@ -194,6 +194,24 @@ PDM_NO_BINARY=:all: pdm install
 # 首选二进制分发，即使有更高版本的 sdist 可用
 PDM_PREFER_BINARY=flask pdm install
 ```
+
+你还可以在项目的 `pyproject.toml` 中使用 `tool.pdm.resolution` 部分的 `no-binary`、`only-binary` 和 `prefer-binary` 键定义这些值。
+它们接受与环境变量相同格式的输入，并支持列表。
+
+```toml
+[tool.pdm.resolution]
+# 不会锁定 werkzeug 和 flask 的二进制文件，也不会在安装时使用
+no-binary = "werkzeug,flask"
+# 等同于
+no-binary = ["werkzeug", "flask"]
+# 只有二进制文件将被锁定在锁文件中
+only-binary = ":all:"
+# 优先选择二进制分发，即使具有更高版本的sdist可用
+prefer-binary = "flask"
+```
+
+!!! 注意
+    每个环境变量优先于其在 `pyproject.toml` 中的替代项。
 
 ## 允许安装预发行版本
 
