@@ -49,7 +49,7 @@ PDM 需要 python 版本 3.8 或更高版本。
 === "Windows"
 
     ```powershell
-    [System.Text.Encoding]::UTF8.GetString((Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py).Content) | python -
+    (Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py).Content -UseBasicParsing) | py -
     ```
 
 出于安全原因，您应验证 `install-pdm.py` 文件的校验和。

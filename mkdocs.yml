@@ -63,8 +63,8 @@ nav:
   - 开发:
       - dev/write.md
       - dev/fixtures.md
-      - dev/contributing.md
-      - dev/changelog.md
+      - 贡献指南: /en/latest/dev/contributing/
+      - 改动日志: /en/latest/dev/changelog/
       - dev/benchmark.md
   - 赞助: https://github.com/sponsors/pdm-project
 
@@ -120,6 +120,3 @@ extra_css:
   - assets/extra.css
 extra_javascript:
   - assets/extra.js
-
-watch:
-  - src

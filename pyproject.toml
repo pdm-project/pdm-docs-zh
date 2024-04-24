@@ -21,7 +21,7 @@ doc = [
     "setuptools>=62.3.3",
     "markdown-exec>=0.7.0",
     "mkdocs-version-annotations>=1.0.0",
-    "pdm @ git+https://github.com/pdm-project/pdm.git@main",
+    "pdm[pytest] @ git+https://github.com/pdm-project/pdm.git@main",
 ]
 
 [tool.pdm.scripts]
