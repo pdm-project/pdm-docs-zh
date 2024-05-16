@@ -137,7 +137,7 @@ all = {composite = ["lint mypackage/", "test -v tests/"]}
 ```toml
 [tool.pdm.scripts]
 start.cmd = "flask run -p 54321"
-start.env = {FOO = "bar", FLASK_ENV = "development"}
+start.env = {FOO = "bar", FLASK_ENV = "1"}
 ```
 
 注意我们如何使用 [TOML 的语法](https://github.com/toml-lang/toml) 定义一个复合字典。
