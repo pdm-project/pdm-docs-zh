@@ -229,7 +229,8 @@ pdm update -dG test pytest
 
 ### 将软件包更新忽略 pyproject.toml 中的版本规范
 
-可以给 `-u/--unconstrained` 选项告诉 PDM 忽略 `pyproject.toml` 中的版本规范。这类似于 `yarn upgrade -L/--latest` 命令。此外，[`pdm update`](../reference/cli.md#update) 还支持 `--pre/--prerelease` 选项。
+可以给 `-u/--unconstrained` 选项告诉 PDM 忽略 `pyproject.toml` 中的版本规范。
+这类似于 `yarn upgrade -L/--latest` 命令。此外，[`pdm update`](../reference/cli.md#update_2) 还支持 `--pre/--prerelease` 选项。
 
 ## 删除现有依赖项
 
