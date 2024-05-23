@@ -122,7 +122,7 @@ all.keep_going = true
 [tool.pdm.scripts]
 lint = "flake8"
 test = "pytest"
-all = {composite = ["lint mypackage/", "test -v tests/"]}
+all.composite = ["lint mypackage/", "test -v tests/"]
 ```
 
 !!! note
