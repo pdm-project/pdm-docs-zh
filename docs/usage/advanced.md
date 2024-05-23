@@ -26,9 +26,13 @@ commands =
     flake8 src/
 ```
 
-要使用 Tox 创建的虚拟环境，您应该确保已设置 `pdm config python.use_venv true`。然后，PDM 将安装 [`pdm lock`](../reference/cli.md#lock) 中的依赖项到虚拟环境中。在专用虚拟环境中，您可以直接通过 `pytest tests/` 而不是 `pdm run pytest tests/` 运行工具。
+要使用 Tox 创建的虚拟环境，您应该确保已设置 `pdm config python.use_venv true`。
+然后，PDM 将安装 [`pdm lock`](../reference/cli.md#lock) 中的依赖项到虚拟环境中。
+在专用虚拟环境中，您可以直接通过 `pytest tests/` 而不是 `pdm run pytest tests/` 运行工具。
 
-您还应该确保在测试命令中不运行 `pdm add/pdm remove/pdm update/pdm lock`，否则 [`pdm lock`](../reference/cli.md#lock) 文件将意外修改。可以通过 `deps` 配置提供额外的依赖项。此外，`isolated_build` 和 `passenv` 配置应设置为上面的示例，以确保 PDM 正常工作。
+您还应该确保在测试命令中不运行 `pdm add/pdm remove/pdm update/pdm lock`，否则 [`pdm lock`](../reference/cli.md#lock) 文件将意外修改。
+可以通过 `deps` 配置提供额外的依赖项。
+此外，`isolated_build` 和 `passenv` 配置应设置为上面的示例，以确保 PDM 正常工作。
 
 为了摆脱这些限制，有一个 Tox 插件 [tox-pdm](https://github.com/pdm-project/tox-pdm) 可以简化使用。您可以通过以下方式安装它：
 
@@ -130,7 +134,8 @@ Testing:
 ```
 
 !!! important "提示"
-    对于 GitHub Action 用户，Ubuntu 虚拟环境存在一个  [已知的兼容性问题](https://github.com/actions/virtual-environments/issues/2803) 如果在该机器上 PDM 并行安装失败，您应该将 `parallel_install` 设置为 `false`，或设置环境变量 `LD_PRELOAD=/lib/x86_64-linux-gnu/libgcc_s.so.1`。
+    对于 GitHub Action 用户，Ubuntu 虚拟环境存在一个  [已知的兼容性问题](https://github.com/actions/virtual-environments/issues/2803)。
+    如果在该机器上 PDM 并行安装失败，您应该将 `parallel_install` 设置为 `false`，或设置环境变量 `LD_PRELOAD=/lib/x86_64-linux-gnu/libgcc_s.so.1`。
     这已经由 `pdm-project/setup-pdm` 操作处理。
 
 !!! note

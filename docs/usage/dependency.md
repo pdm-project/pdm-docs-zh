@@ -1,6 +1,7 @@
 # 管理依赖项
 
-PDM 提供了一系列有用的命令，帮助您管理项目和依赖项。以下示例在 Ubuntu 18.04 上运行，如果您使用 Windows，则需要进行一些更改。
+PDM 提供了一系列有用的命令，帮助您管理项目和依赖项。以下示例在 Ubuntu 18.04 上运行，
+如果您使用 Windows，则需要进行一些更改。
 
 ## Add dependencies
 
@@ -15,7 +16,8 @@ pdm add requests[socks]   # 添加带有额外依赖项的 requests
 pdm add "flask>=1.0" flask-sqlalchemy   # 添加多个具有不同规范的依赖项
 ```
 
-PDM 还允许通过提供 `-G/--group <name>` 选项来添加额外的依赖项组，这些依赖项将分别进入项目文件中的 `[project.optional-dependencies.<name>]` 表。
+PDM 还允许通过提供 `-G/--group <name>` 选项来添加额外的依赖项组，
+这些依赖项将分别进入项目文件中的 `[project.optional-dependencies.<name>]` 表。
 
 您可以在 `optional-dependencies` 中引用其他可选组，在上传包之前甚至可以引用它们：
 
@@ -116,7 +118,9 @@ dependencies = [
 
 +++ 1.5.0
 
-PDM 还支持定义一组仅用于开发的依赖项，例如一些用于测试和另一些用于 linting。我们通常不希望这些依赖项出现在分发的元数据中，因此使用 `optional-dependencies` 可能不是一个好主意。我们可以将它们定义为开发依赖项：
+PDM 还支持定义一组仅用于开发的依赖项，例如一些用于测试和另一些用于 linting。
+我们通常不希望这些依赖项出现在分发的元数据中，因此使用 `optional-dependencies` 可能不是一个好主意。
+我们可以将它们定义为开发依赖项：
 
 ```bash
 pdm add -dG test pytest
@@ -129,7 +133,8 @@ pdm add -dG test pytest
 test = ["pytest"]
 ```
 
-您可以有几个开发依赖项组。与 `optional-dependencies` 类似，它们不会出现在包分发的元数据中，例如 `PKG-INFO` 或 `METADATA`。包索引不会知道这些依赖项。模式类似于 `optional-dependencies`，只不过在 `tool.pdm` 表中。
+您可以有几个开发依赖项组。与 `optional-dependencies` 类似，它们不会出现在包分发的元数据中，例如 `PKG-INFO` 或 `METADATA`。
+包索引不会知道这些依赖项。模式类似于 `optional-dependencies`，只不过在 `tool.pdm` 表中。
 
 ```toml
 [tool.pdm.dev-dependencies]
@@ -164,7 +169,9 @@ pdm add -e git+https://github.com/pallets/click.git@main#egg=click --dev
 
 ### 保存版本规范
 
-如果未给出带有版本规范的包，如 `pdm add requests`。PDM 提供了三种不同的行为来保存依赖项的版本规范，即通过 `--save-<strategy>` 指定（假设 2.21.0 是可以找到的最新版本规范的版本）：
+如果未给出带有版本规范的包，如 `pdm add requests`。
+PDM 提供了三种不同的行为来保存依赖项的版本规范，
+即通过 `--save-<strategy>` 指定（假设 2.21.0 是可以找到的最新版本规范的版本）：
 
 - `minimum`: 保存最低版本规范：`>=2.21.0`（默认）。
 - `compatible`: 保存兼容版本规范：`>=2.21.0,<3.0.0`。
@@ -220,7 +227,8 @@ pdm update -dG test pytest
 
 ### 关于更新策略
 
-类似地，PDM 还提供了更新依赖项和子依赖项的 3 种不同行为，通过 `--update-<strategy>` 选项指定：
+类似地，PDM 还提供了更新依赖项和子依赖项的 3 种不同行为，
+通过 `--update-<strategy>` 选项指定：
 
 - `reuse`: 保留所有已锁定的依赖项，除了命令行中给定的依赖项（默认）。
 - `reuse-installed`: 尝试重用安装在工作集中的版本。**这也会影响命令行中请求的软件包**。
@@ -230,7 +238,8 @@ pdm update -dG test pytest
 ### 将软件包更新忽略 pyproject.toml 中的版本规范
 
 可以给 `-u/--unconstrained` 选项告诉 PDM 忽略 `pyproject.toml` 中的版本规范。
-这类似于 `yarn upgrade -L/--latest` 命令。此外，[`pdm update`](../reference/cli.md#update_2) 还支持 `--pre/--prerelease` 选项。
+这类似于 `yarn upgrade -L/--latest` 命令。此外，
+[`pdm update`](../reference/cli.md#update_2) 还支持 `--pre/--prerelease` 选项。
 
 ## 删除现有依赖项
 
@@ -305,7 +314,8 @@ pdm list
 
 ### 包括和排除组
 
-默认情况下，将列出工作集中安装的所有软件包。您可以通过 `--include/--exclude` 选项指定要列出的组，其中 `include` 优先级高于 `exclude`。
+默认情况下，将列出工作集中安装的所有软件包。
+您可以通过 `--include/--exclude` 选项指定要列出的组，其中 `include` 优先级高于 `exclude`。
 
 ```bash
 pdm list --include dev
@@ -370,37 +380,26 @@ certifi 2023.7.22
     └── cachecontrol[filecache] 0.13.1 [ requires: >=2.16.0 ]
 ```
 
-### 显示软件包的详细信息
-
-通过 `pdm list --info <package>`，您可以查看软件包的详细信息，包括安装位置、依赖项、元数据等。
-
-```bash
-pdm list --info flask
-```
-
-### 列出缺失的软件包
-
-通过 pdm list --missing，您可以列出项目文件中声明但尚未安装的软件包。
-
-```bash
-pdm list --missing
-```
-
-### 显示软件包的授权信息
-
-通过 pdm list --licenses，您可以列出项目中所有软件包的授权信息。
-
 ## 管理全局项目
 
-有时，用户可能还想跟踪全局 Python 解释器的依赖关系。使用 PDM 可以通过大多数子命令支持的 `-g/--global` 选项轻松实现此目的。
+有时，用户可能还想跟踪全局 Python 解释器的依赖关系。
+使用 PDM 可以通过大多数子命令支持的 `-g/--global` 选项轻松实现此目的。
 
-如果传递该选项， `<CONFIG_ROOT>/global-project` 将用作项目目录，这与普通项目几乎相同，只是 `pyproject.toml` 会自动为您创建并且不支持构建功能。这个想法取自 `Haskell` 的堆栈。
+如果传递该选项， `<CONFIG_ROOT>/global-project` 将用作项目目录，
+这与普通项目几乎相同，只是 `pyproject.toml` 会自动为您创建并且不支持构建功能。
+这个想法取自 `Haskell` 的堆栈。
 
-但是，与 `stack` 不同的是，默认情况下，如果未找到本地项目，PDM 不会自动使用全局项目。用户应该显式地传递 `-g/--global` 来激活它，因为如果包发送到错误的地方，那就不太令人愉快了。但 PDM 也将决定权留给用户，只需将配置 `global_project.fallback` 设置为 `true` 即可。
+但是，与 `stack` 不同的是，默认情况下，如果未找到本地项目，PDM 不会自动使用全局项目。
+用户应该显式地传递 `-g/--global` 来激活它，因为如果包发送到错误的地方，那就不太令人愉快了。
+但 PDM 也将决定权留给用户，只需将配置 `global_project.fallback` 设置为 `true` 即可。
 
-默认情况下，当 pdm 隐式使用全局项目时，会打印以下消息： `Project is not found, fallback to the global project` 。要禁用此消息，请将配置 `global_project.fallback_verbose` 设置为 `false` 。
+默认情况下，当 pdm 隐式使用全局项目时，会打印以下消息： `Project is not found, fallback to the global project` 。
+要禁用此消息，请将配置 `global_project.fallback_verbose` 设置为 `false` 。
 
-如果您希望全局项目跟踪 `<CONFIG_ROOT>/global-project` 之外的另一个项目文件，您可以通过 `-p/--project <path>` 选项提供项目路径。特别是如果您传递 `--global --project .` ，PDM 会将当前项目的依赖项安装到全局 Python 中。
+如果您希望全局项目跟踪 `<CONFIG_ROOT>/global-project` 之外的另一个项目文件，
+您可以通过 `-p/--project <path>` 选项提供项目路径。
+特别是如果您传递 `--global --project .`，
+PDM 会将当前项目的依赖项安装到全局 Python 中。
 
 !!! warning
-    使用全局项目时要小心 remove 和 sync --clean/--pure 命令，因为它可能会删除系统 Python 中安装的包。
+    使用全局项目时要小心 `remove` 和 `sync --clean/--pure` 命令，因为它可能会删除系统 Python 中安装的包。

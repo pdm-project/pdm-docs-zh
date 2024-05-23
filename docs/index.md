@@ -22,16 +22,11 @@
 [pep 621]: https://www.python.org/dev/peps/pep-0621
 [pnpm]: https://pnpm.io/motivation#saving-disk-space-and-boosting-installation-speed
 
-!!! 提示
-    - PEP 517 是 Python Enhancement Proposal 的缩写，它定义了 Python 包的构建系统接口。在 PEP 517 中，构建后端负责实际执行项目构建的工作。
-    - 构建后端（build backend）指的是用于构建 Python 项目的工具或库。
-    - PEP 621 是 Python Enhancement Proposal 的一部分，它提出了关于 Python 项目元数据的新标准。元数据是指关于项目的信息，比如项目的名称、版本、作者、依赖项等等。
-
 ## 安装
 
 PDM 需要安装 Python 3.8+。它适用于多个平台，包括 Windows、Linux 和 macOS。
 
-!!! note
+!!! NOTE
     你仍然可以让你的项目在较低的 Python 版本上工作，请阅读如何做到这一点 [点击这里](usage/project.md#working-with-python-37)。
 
 ### 推荐安装方式
@@ -52,8 +47,11 @@ PDM 需要 python 版本 3.8 或更高版本。
     (Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py).Content -UseBasicParsing) | py -
     ```
 
+!!! NOTE
+    在 Windows 上，如果您没有安装可选的 ``py`` 启动器（包括通过 Microsoft 商店安装 Python），请将``py`` 替换为 ``python``。
+
 出于安全原因，您应验证 `install-pdm.py` 文件的校验和。
-您可以从 [install-pdm.py.sha256](https://pdm-project.org/install-pdm.py.sha256)下载该文件。
+您可以从 [install-pdm.py.sha256](https://pdm-project.org/install-pdm.py.sha256) 下载该文件。
 
 例如，在 Linux/Mac 上：
 
@@ -72,17 +70,17 @@ python3 install-pdm.py [options]
 
 您可以将其他参数传递给脚本来控制 PDM 的安装方式：
 
-```
+```bash
 usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d DEP]
 
 可选参数:
-  -h, --help            显示帮助信息并退出
-  -v VERSION, --version VERSION | envvar: PDM_VERSION
+-h, --help            显示帮助信息并退出
+-v VERSION, --version VERSION | envvar: PDM_VERSION
                         指定要安装的版本，或使用 HEAD 从主分支安装
-  --prerelease | envvar: PDM_PRERELEASE    允许安装预发行版本
-  --remove | envvar: PDM_REMOVE            移除 PDM 安装
-  -p PATH, --path PATH | envvar: PDM_HOME  指定安装 PDM 的位置
-  -d DEP, --dep DEP | envvar: PDM_DEPS     指定额外的依赖项，可以多次指定
+--prerelease | envvar: PDM_PRERELEASE    允许安装预发行版本
+--remove | envvar: PDM_REMOVE            移除 PDM 安装
+-p PATH, --path PATH | envvar: PDM_HOME  指定安装 PDM 的位置
+-d DEP, --dep DEP | envvar: PDM_DEPS     指定额外的依赖项，可以多次指定
 ```
 
 您可以在运行的安装脚本命令的后面传递选项，也可以设置环境变量 env var 值。
