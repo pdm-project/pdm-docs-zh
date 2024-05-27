@@ -1,0 +1,967 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2024-05-25 11:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: cli.py:*
+msgid "Options"
+msgstr "可选参数"
+
+msgid "Commands"
+msgstr "命令"
+
+msgid "Package Arguments"
+msgstr "包参数"
+
+msgid "Install Options"
+msgstr "安装选项"
+
+msgid "Positional Arguments"
+msgstr "位置参数"
+
+msgid "Dependencies Selection"
+msgstr "依赖选择"
+
+msgid "Builtin Generator Options:"
+msgstr "内置生成器选项："
+
+msgid "Builtin Generator Options"
+msgstr "内置生成器选项"
+
+msgid "Lock Strategy:"
+msgstr "锁定策略："
+
+msgid "Execution Parameters:"
+msgstr "执行参数："
+
+msgid "Execution Parameters"
+msgstr "执行参数"
+
+msgid "- `-h`, `--help`: Show this help message and exit."
+msgstr "- `-h`, `--help`: 显示此帮助消息并退出。"
+
+msgid "- `-V`, `--version`: Show the version and exit"
+msgstr "- `-V`, `--version`: 显示版本并退出"
+
+msgid "- `-c`, `--config`: Specify another config file path [env var: `PDM_CONFIG_FILE`] "
+msgstr "- `-c`, `--config`: 指定其他配置文件路径 [环境变量: `PDM_CONFIG_FILE`]"
+
+msgid "- `-v`, `--verbose`: Use `-v` for detailed output and `-vv` for more detailed"
+msgstr "- `-v`, `--verbose`: 使用 `-v` 显示详细输出，`-vv` 显示更详细的输出"
+
+msgid "- `-q`, `--quiet`: Suppress output"
+msgstr "- `-q`, `--quiet`: 不显示任何输出"
+
+msgid "- `--no-cache`: Disable the cache for the current command. [env var: `PDM_NO_CACHE`]"
+msgstr "- `--no-cache`: 禁用当前命令的缓存。 [环境变量: `PDM_NO_CACHE`]"
+
+msgid "- `-I`, `--ignore-python`: Ignore the Python path saved in`.pdm-python`. [env var: `PDM_IGNORE_SAVED_PYTHON`]"
+msgstr "- `-I`, `--ignore-python`: 忽略保存在`.pdm-python`中的 Python 路径。 [环境变量: `PDM_IGNORE_SAVED_PYTHON`]"
+
+msgid "- `--pep582` `SHELL`: Print the command line to be eval'd by the shell"
+msgstr "- `--pep582` `SHELL`: 打印用于在 shell 中评估的命令行"
+
+msgid "Add package(s) to pyproject.toml and install them"
+msgstr "将包添加到 pyproject.toml 并安装它们"
+
+msgid "- `-e`, `--editable`: Specify editable packages"
+msgstr "- `-e`, `--editable`: 指定可编辑的包"
+
+msgid "- `packages`: Specify packages"
+msgstr "- `packages`: 指定包"
+
+msgid "- `-g`, `--global`: Use the global project, supply the project root with `-p` option"
+msgstr "- `-g`, `--global`: 使用全局项目，使用 `-p` 选项指定项目根目录"
+
+msgid "- `-p`, `--project`: Specify another path as the project root, which changes the base of`pyproject.toml` and `__pypackages__` [env var: `PDM_PROJECT`]"
+msgstr "- `-p`, `--project`: 指定其他路径作为项目根目录，该路径更改`pyproject.toml`和`__pypackages__`的基目录。 [环境变量: `PDM_PROJECT`]"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定其他锁定文件路径。 默认：`pdm.lock`。 [环境变量: `PDM_LOCKFILE`]"
+
+msgid "- `--frozen-lockfile`, `--no-lock`: Don't try to create or update the lockfile. [env var: `PDM_FROZEN_LOCKFILE`]"
+msgstr "- `--frozen-lockfile`, `--no-lock`: 不要尝试创建或更新锁定文件。 [环境变量: `PDM_FROZEN_LOCKFILE`]"
+
+msgid "- `--save-compatible`: Save compatible version specifiers"
+msgstr "- `--save-compatible`: 保存兼容版本规范"
+
+msgid "- `--save-wildcard`: Save wildcard version specifiers"
+msgstr "- `--save-wildcard`: 保存通配符版本规范"
+
+msgid "- `--save-exact`: Save exact version specifiers"
+msgstr "- `--save-exact`: 保存精确版本规范"
+
+msgid "- `--save-minimum`: Save minimum version specifiers"
+msgstr "- `--save-minimum`: 保存最小版本规范"
+
+msgid "- `--update-reuse`: Reuse pinned versions already present in lock file if possible"
+msgstr "- `--update-reuse`: 如果可能，尝试使用锁定文件中已存在的固定版本"
+
+msgid "- `--update-eager`: Try to update the packages and their dependencies recursively"
+msgstr "- `--update-eager`: 尝试递归更新包及其依赖项"
+
+msgid "- `--update-all`: Update all dependencies and sub-dependencies"
+msgstr "- `--update-all`: 更新所有依赖项和子依赖项"
+
+msgid "- `--update-reuse-installed`: Reuse installed packages if possible"
+msgstr "- `--update-reuse-installed`: 如果可能，尝试使用已安装的包"
+
+msgid "- `--pre`, `--prerelease`: Allow prereleases to be pinned"
+msgstr "- `--pre`, `--prerelease`: 允许预发行版本被固定"
+
+msgid "- `--stable`: Only allow stable versions to be pinned (default: `True`)"
+msgstr "- `--stable`: 默认情况下,只允许固定稳定版本 默认值: (`True`)"
+
+msgid "- `-u`, `--unconstrained`: Ignore the version constraint of packages"
+msgstr "- `-u`, `--unconstrained`: 忽略包的版本限制"
+
+msgid "- `--dry-run`: Show the difference only and don't perform any action"
+msgstr "- `--dry-run`: 仅显示差异，不执行任何操作"
+
+msgid "- `--venv` `NAME`: Run the command in the virtual environment with the given key. [env var: `PDM_IN_VENV`]"
+msgstr "- `--venv` `NAME`: 在给定键的虚拟环境中运行命令。 [环境变量: `PDM_IN_VENV`]"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。 可以多次提供。 使用 `:all` 跳过所有钩子。 使用 `:pre` 和 `:post` 跳过所有预或后钩子。"
+
+msgid "- `-d`, `--dev`: Add packages into dev dependencies"
+msgstr "- `-d`, `--dev`: 将包添加到开发依赖项"
+
+msgid "- `-G`, `--group`: Specify the target dependency group to add into"
+msgstr "- `-G`, `--group`: 指定要将包添加到的目标依赖项组"
+
+msgid "- `--no-sync`: Only write`pyproject.toml` and do not sync the working set (default: `False`)"
+msgstr "- `--no-sync`: 仅写入 `pyproject.toml` 并无需同步工作集（默认：`False`）"
+
+msgid "- `--no-editable`: Install non-editable versions for all packages. [env var: `PDM_NO_EDITABLE`]"
+msgstr "- `--no-editable`: 为所有包安装不可编辑版本。 [环境变量: `PDM_NO_EDITABLE`]"
+
+msgid "- `--no-self`: Don't install the project itself. [env var: `PDM_NO_SELF`]"
+msgstr "- `--no-self`: 不要安装项目本身。 [环境变量: `PDM_NO_SELF`]"
+
+msgid "- `--fail-fast`, `-x`: Abort on first installation error"
+msgstr "- `--fail-fast`, `-x`: 在第一个安装错误时中止"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 当构建遵循 PEP 517 的源分发时禁用隔离，即：如果使用此选项，则必须已安装 PEP 518 指定的构建依赖项。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after \"=\": `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建器。 具有值的选项必须在“=”之后指定：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "Build artifacts for distribution"
+msgstr "为分发构建工件"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 当构建遵循 PEP 517 的源分发时禁用隔离，即：如果使用此选项，则必须已安装 PEP 518 指定的构建依赖项。"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。 可以多次提供。 使用 `:all` 跳过所有钩子。 使用 `:pre` 和 `:post` 跳过所有预或后钩子。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after \"=\": `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建器。 具有值的选项必须在“=”之后指定：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "- `--no-sdist`: Don't build source tarballs (default: `False`)"
+msgstr "- `--no-sdist`: 不要构建源 tarball（默认：`False`）"
+
+msgid "- `--no-wheel`: Don't build wheels (default: `False`)"
+msgstr "- `--no-wheel`: 不要构建轮（默认：`False`）"
+
+msgid "- `-d`, `--dest`: Target directory to put artifacts (default: `dist`)"
+msgstr "- `-d`, `--dest`: 将工件放入的目标目录（默认：`dist`）"
+
+msgid "- `--no-clean`: Do not clean the target directory (default: `False`)"
+msgstr "- `--no-clean`: 不要清理目标目录（默认：`False`）"
+
+msgid "Control the caches of PDM"
+msgstr "控制 PDM 的缓存"
+
+msgid "Clean all the files under cache directory"
+msgstr "清理缓存目录下的所有文件"
+
+msgid "- `type`: Clear the given type of caches"
+msgstr "- `type`: 清除给定类型的缓存"
+
+msgid "Remove files matching the given pattern"
+msgstr "删除匹配给定模式的文件"
+
+msgid "- `pattern`: The pattern to remove"
+msgstr "- `pattern`: 要删除的模式"
+
+msgid "List the built wheels stored in the cache"
+msgstr "列出存储在缓存中的已构建轮"
+
+msgid "- `pattern`: The pattern to list (default: `*`)"
+msgstr "- `pattern`: 要列出的模式 (默认: `*`)"
+
+msgid "Show the info and current size of caches"
+msgstr "显示缓存的当前大小和信息"
+
+
+msgid "Generate completion scripts for the given shell"
+msgstr "为给定的 shell 生成完成脚本"
+
+msgid "- `shell`: The shell to generate the scripts for. If not given, PDM will properly guess from `SHELL` env var."
+msgstr "- 'shell'：要为其生成脚本的 shell。如果没有给出，PDM 将从 'SHELL' env var 中正确猜测。"
+
+msgid "Display the current configuration"
+msgstr "显示当前配置"
+
+msgid "- `key`: Config key"
+msgstr "- `key`: 配置键"
+
+msgid "- `value`: Config value"
+msgstr "- `value`: 配置值"
+
+msgid "- `-l`, `--local`: Set config in the project's local configuration file"
+msgstr "- `-l`, `--local`: 在项目的本地配置文件中设置配置"
+
+msgid "- `-d`, `--delete`: Unset a configuration key"
+msgstr "- `-d`, `--delete`: 取消设置配置键"
+
+msgid "- `-e`, `--edit`: Edit the configuration file in the default editor(defined by EDITOR env var)"
+msgstr "- `-e`, `--edit`: 在默认编辑器(由 EDITOR 环境变量定义)中编辑配置文件"
+
+msgid "Export the locked packages set to other formats"
+msgstr "将锁定的包集导出为其他格式"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定另一个锁定文件路径。 默认：`pdm.lock`。 [env var: `PDM_LOCKFILE`]"
+
+msgid "- `-f`, `--format`: Only requirements.txt is supported for now. (default: `requirements`)"
+msgstr "- '-f'， '--format'：目前仅支持requirements.txt。默认值：（'requirements'）"
+
+msgid "- `--no-hashes`, `--without-hashes`: Don't include artifact hashes (default: `False`)"
+msgstr "- `--no-hashes`, `--without-hashes`: 不要包含工件哈希 默认值：（`False`）"
+
+msgid "- `--no-markers`: Don't include platform markers (default: `False`)"
+msgstr "- `--no-markers`: 不要包含平台标记 默认值：（`False`）"
+
+msgid "- `-o`, `--output`: Write output to the given file, or print to stdout if not given"
+msgstr "- `-o`, `--output`: 将输出写入给定的文件，如果未指定，则打印到 stdout"
+
+msgid "- `--pyproject`: Read the list of packages from`pyproject.toml`"
+msgstr "- `--pyproject`: 从 `pyproject.toml` 读取包的列表"
+
+msgid "- `--expandvars`: Expand environment variables in requirements"
+msgstr "- `--expandvars`: 在要求中展开环境变量"
+
+msgid "- `--self`: Include the project itself"
+msgstr "- `--self`: 包括项目本身"
+
+msgid "- `--editable-self`: Include the project itself as an editable dependency"
+msgstr "- `--editable-self`: 将项目本身作为可编辑依赖项包括在内"
+
+msgid "- `-G`, `--group`, `--with` `GROUP`: Select group of optional-dependencies separated by comma or dev-dependencies (with `-d`). Can be supplied multiple times, use`:all` to include all groups under the same species."
+msgstr "- `-G`, `--group`, `--with` `GROUP`: 选择以逗号分隔的可选依赖项组或开发依赖项（使用`-d`）。 可以多次提供，使用`:all`包括同一物种的所有组。"
+
+msgid "- `--without`: Exclude groups of optional-dependencies or dev-dependencies"
+msgstr "- `--without`: 排除可选依赖项组或开发依赖项"
+
+msgid "- `--no-default`: Don't include dependencies from the default group default: (`False`)"
+msgstr "- `--no-default`: 不要包含默认组中的依赖项 默认值：（`False`）"
+
+msgid "- `-d`, `--dev`: Select dev dependencies"
+msgstr "- `-d`, `--dev`: 选择开发依赖项"
+
+msgid "- `--prod`, `--production`: Unselect dev dependencies"
+msgstr "- `--prod`, `--production`: 取消选择开发依赖项"
+
+msgid "Fix the project problems according to the latest version of PDM"
+msgstr "根据最新的 PDM 版本修复项目问题"
+
+msgid "- `problem`: Fix the specific problem, or all if not given"
+msgstr "- `problem`: 修复特定的问题，如果没有指定，则全部修复"
+
+msgid "- `--dry-run`: Only show the problems"
+msgstr "- `--dry-run`: 仅显示问题"
+
+msgid "Import project metadata from other formats"
+msgstr "从其他格式导入项目元数据"
+
+msgid "- `filename`: The file name"
+msgstr "- `filename`: 文件名"
+
+msgid "- `-d`, `--dev`: import packages into dev dependencies"
+msgstr "- `-d`, `--dev`: 导入包到开发依赖项"
+
+msgid "- `-G`, `--group`: Specify the target dependency group to import into"
+msgstr "- `-G`, `--group`: 指定要将其导入的目标依赖项组"
+
+msgid "- `-f`, `--format`: Specify the file format explicitly"
+msgstr "- `-f`, `--format`: 显式指定文件格式"
+
+msgid "Show the project information"
+msgstr "显示项目信息"
+
+msgid "- `--python`: Show the interpreter path"
+msgstr "- `--python`: 显示解释器路径"
+
+msgid "- `--where`: Show the project root path"
+msgstr "- `--where`: 显示项目根路径"
+
+msgid "- `--packages`: Show the local packages root"
+msgstr "- `--packages`: 显示本地包根"
+
+msgid "- `--env`: Show PEP 508 environment markers"
+msgstr "- `--env`: 显示 PEP 508 环境标记"
+
+msgid "- `--json`: Dump the information in JSON"
+msgstr "- `--json`: 以 JSON 格式显示信息"
+
+msgid "Initialize a pyproject.toml for PDM"
+msgstr "初始化 pyproject.toml 以使用 PDM"
+
+msgid "- `template`: Specify the project template, which can be a local path or a Git URL"
+msgstr "- `template`: 指定项目模板，可以是本地路径或 Git URL"
+
+msgid "- `generator_args`: Arguments passed to the generator"
+msgstr "- `generator_args`: 传递给生成器的参数"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 跳过一些任务的某些名称，以逗号分隔。 可以多次提供。 使用`:all`跳过所有钩子。 使用`:pre`和`:post`跳过所有预或后挂钩。"
+
+msgid "- `--copier`: Use Copier to generate project [not installed] (default: `builtin`)"
+msgstr "- `--copier`: 使用 Copier 生成项目 [未安装] (默认: `builtin`)"
+
+msgid "- `--cookiecutter`: Use Cookiecutter to generate project [not installed] (default: `builtin`)"
+msgstr "- `--cookiecutter`: 使用 Cookiecutter 生成项目 [未安装] (默认: `builtin`)"
+
+msgid "- `-r`, `--overwrite`: Overwrite existing files"
+msgstr "- `-r`, `--overwrite`: 覆盖现有文件。"
+
+msgid "- `-n`, `--non-interactive`: Don't ask questions but use default values"
+msgstr "- `-n`, `--non-interactive`: 不询问但使用默认值"
+
+msgid "- `--python`: Specify the Python version/path to use"
+msgstr "- `--python`: 指定要使用的 Python 版本/路径"
+
+msgid "- `--dist`, `--lib`: Create a package for distribution"
+msgstr "- `--dist`, `--lib`: 创建用于分发的包"
+
+msgid "- `--backend`: Specify the build backend, which implies --dist"
+msgstr "- `--backend`: 指定构建后端，这会隐含 --dist"
+
+msgid "Install dependencies from lock file"
+msgstr "安装依赖项从锁定文件"
+
+msgid "- `--dry-run`: Show the difference only and don't perform any action"
+msgstr "- `--dry-run`: 仅显示差异，不执行任何操作"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定其他锁定文件路径。 默认:`pdm.lock`. [环境变量: `PDM_LOCKFILE`]"
+
+msgid "- `--frozen-lockfile`, `--no-lock`: Don't try to create or update the lockfile. [env var: `PDM_FROZEN_LOCKFILE`]"
+msgstr "- `--frozen-lockfile`, `--no-lock`: 不尝试创建或更新锁定文件。 [环境变量: `PDM_FROZEN_LOCKFILE`]"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 跳过一些任务的某些名称，以逗号分隔。 可以多次提供。 使用`:all`跳过所有钩子。 使用`:pre`和`:post`跳过所有预或后挂钩。"
+
+msgid "- `--check`: Check if the lock file is up to date and fail otherwise"
+msgstr "- `--check`: 检查锁定文件是否最新，如果不最新则失败"
+
+msgid "- `--plugins`: Install the plugins specified in`pyproject.toml`"
+msgstr "- `--plugins`: 安装`pyproject.toml`中指定的插件"
+
+msgid "- `--no-editable`: Install non-editable versions for all packages. [env var: `PDM_NO_EDITABLE`]"
+msgstr "- `--no-editable`: 为所有包安装不可编辑版本。 [环境变量: `PDM_NO_EDITABLE`]"
+
+msgid "- `--no-self`: Don't install the project itself. [env var: `PDM_NO_SELF`]"
+msgstr "- `--no-self`: 不安装项目本身。 [环境变量: `PDM_NO_SELF`]"
+
+msgid "- `--fail-fast`, `-x`: Abort on first installation error"
+msgstr "- `--fail-fast`, `-x`: 在首次安装错误时中止"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 在构建源分发时禁用隔离，如：如果使用此选项，则必须已安装 PEP 518 中指定的构建依赖项。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after '=': `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建器。 具有值的选项必须在等号之后指定：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "- `-G`, `--group`, `--with` `GROUP`: Select group of optional-dependencies separated by comma or dev-dependencies (with `-d`). Can be supplied multiple times, use`:all` to include all groups under the same species."
+msgstr "- `-G`, `--group`, `--with` `GROUP`: 选择逗号分隔的可选依赖项组或开发依赖项（使用`-d`）。 可以多次提供。 使用`:all`包括同一物种下的所有组。"
+
+msgid "- `--without`: Exclude groups of optional-dependencies or dev-dependencies"
+msgstr "- `--without`: 排除可选依赖项组或开发依赖项"
+
+msgid "- `--no-default`: Don't include dependencies from the default group default: (`False`)"
+msgstr "- `--no-default`: 不包含默认组的依赖项（默认：`False`）"
+
+msgid "- `-d`, `--dev`: Select dev dependencies"
+msgstr "- `-d`, `--dev`: 选择开发依赖项"
+
+msgid "- `--prod`, `--production`: Unselect dev dependencies default: (`True`)"
+msgstr "- `--prod`, `--production`: 取消选择开发依赖项（默认：`True`）"
+
+msgid "List packages installed in the current working set"
+msgstr "列出当前工作集安装的包"
+
+msgid "- `patterns`: Filter packages by patterns. e.g. pdm list requests-* flask-*. In --tree mode, only show the subtree of the matched packages."
+msgstr "- `patterns`: 按模式过滤包。 例如，pdm list requests-* flask-*。 在--tree模式下，只显示匹配包的子树。"
+
+msgid "- `--freeze`: Show the installed dependencies in pip's requirements.txt format"
+msgstr "- `--freeze`: 以 pip 的 requirements.txt 格式显示已安装的依赖项"
+
+msgid "- `--tree`, `--graph`: Display a tree of dependencies"
+msgstr "- `--tree`, `--graph`: 显示依赖关系的树形结构"
+
+msgid "- `-r`, `--reverse`: Reverse the dependency tree"
+msgstr "- `-r`, `--reverse`: 反转依赖树"
+
+msgid "- `--resolve`: Resolve all requirements to output licenses (instead of just showing those currently installed)"
+msgstr "- `--resolve`: 解析所有要求以输出许可证（而不是仅显示当前安装的许可证）"
+
+msgid "- `--fields`: Select information to output as a comma separated string. All fields: groups,homepage,licenses,location,name,version. (default: `name,version,location`)"
+msgstr "- `--fields`: 选择以逗号分隔的字符串输出的信息。 所有字段：groups,homepage,licenses,location,name,version。 （默认：`name,version,location`）"
+
+msgid "- `--sort`: Sort the output using a given field name. If nothing is set, no sort is applied. Multiple fields can be combined with ','."
+msgstr "- `--sort`: 使用给定字段名称对输出进行排序。 如果未设置，则不进行排序。 多个字段可以组合为“,”。"
+
+msgid "- `--csv`: Output dependencies in CSV document format"
+msgstr "- `--csv`: 以 CSV 文档格式输出依赖项"
+
+msgid "- `--json`: Output dependencies in JSON document format"
+msgstr "- `--json`: 以 JSON 文档格式输出依赖项"
+
+msgid "- `--markdown`: Output dependencies and legal notices in markdown document format - best effort basis"
+msgstr "- `--markdown`: 以 markdown 文档格式输出依赖项和法律通知 - 最佳实践基础"
+
+msgid "- `--include`: Dependency groups to include in the output. By default all are included"
+msgstr "- `--include`: 要包含在输出中的依赖项组。 默认情况下包含所有组"
+
+msgid "- `--exclude`: Exclude dependency groups from the output"
+msgstr "- `--exclude`: 从输出中排除依赖项组"
+
+msgid "Resolve and lock dependencies"
+msgstr "解析并锁定依赖项"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定另一个锁定文件路径。 默认：`pdm.lock`。 [环境变量：`PDM_LOCKFILE`]"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 在构建源分发时禁用隔离，如：如果使用此选项，则必须已安装 PEP 518 中指定的构建依赖项。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after '=': `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建器。 具有值的选项必须在等号之后指定：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。 可以多次提供。 使用`:all`跳过所有钩子。 使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `--refresh`: Refresh the content hash and file hashes in the lock file"
+msgstr "- `--refresh`: 刷新锁定文件中的内容哈希和文件哈希"
+
+msgid "- `--check`: Check if the lock file is up to date and quit"
+msgstr "- `--check`: 检查锁定文件是否最新并退出"
+
+msgid "- `--update-reuse`: Reuse pinned versions already present in lock file if possible (default: `all`)"
+msgstr "- `--update-reuse`: 如果可能，则重新使用锁定文件中的已固定版本（默认：`all`）"
+
+msgid "- `--update-reuse-installed`: Reuse installed packages if possible"
+msgstr "- `--update-reuse-installed`: 如果可能，则重新使用已安装的包"
+
+msgid "- `--exclude-newer`: Exclude packages newer than the given UTC date in format `YYYY-MM-DD[THH:MM:SSZ]`"
+msgstr "- `--exclude-newer`: 以 UTC 格式 `YYYY-MM-DD[THH:MM:SSZ]` 指定排除大于给定日期的包"
+
+msgid "- `--strategy`, `-S` `STRATEGY`: Specify lock strategy (cross_platform, static_urls, direct_minimal_versions, inherit_metadata). Add 'no_' prefix to disable. Can be supplied multiple times or split by comma."
+msgstr "- `--strategy`, `-S` `STRATEGY`: 指定锁定策略（cross_platform, static_urls, direct_minimal_versions, inherit_metadata）。 可以多次提供或通过逗号分隔。"
+
+msgid "- `--no-cross-platform`: [DEPRECATED] Only lock packages for the current platform"
+msgstr "- `--no-cross-platform`: [已弃用] 仅锁定当前平台的包"
+
+msgid "- `--static-urls`: [DEPRECATED] Store static file URLs in the lockfile"
+msgstr "- `--static-urls`: [已弃用] 将静态文件 URL 存储在锁定文件中"
+
+msgid "- `--no-static-urls`: [DEPRECATED] Do not store static file URLs in the lockfile"
+msgstr "- `--no-static-urls`: [已弃用] 不将静态文件 URL 存储在锁定文件中"
+
+msgid "- `-G`, `--group`, `--with` `GROUP`: Select group of optional-dependencies separated by comma or dev-dependencies (with `-d`). Can be supplied multiple times, use`:all` to include all groups under the same species."
+msgstr "- `--group`, `--with` `GROUP`: 选择以逗号分隔的选项依赖项组或开发依赖项（使用`-d`）。 可以多次提供，使用`:all`包括同一种物种下的所有组。"
+
+msgid "- `--without`: Exclude groups of optional-dependencies or dev-dependencies"
+msgstr "- `--without`: 排除选项依赖项组或开发依赖项"
+
+msgid "- `--no-default`: Don't include dependencies from the default group (default: `False`)"
+msgstr "- `--no-default`: 不包括默认组的依赖项（默认：`False`）"
+
+msgid "- `-d`, `--dev`: Select dev dependencies"
+msgstr "- `-d`, `--dev`: 选择开发依赖项"
+
+msgid "- `--prod`, `--production`: Unselect dev dependencies (default: `True`)"
+msgstr "- `--prod`, `--production`: 不选择开发依赖项（默认：`True`）"
+
+msgid "Check for outdated packages and list the latest versions."
+msgstr "检查是否有过时的包并列出最新版本"
+
+msgid "- `patterns`: The packages to check"
+msgstr "- `patterns`: 要检查的包"
+
+msgid "- `--json`: Output in JSON format (default: `table`)"
+msgstr "- `--json`: 以 JSON 格式输出（默认：`table`）"
+
+msgid "Build and publish the project to PyPI"
+msgstr "构建并发布项目到 PyPI"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。 可以多次提供。 使用`:all`跳过所有钩子。 使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `-r`, `--repository`: The repository name or url to publish the package to [env var: `PDM_PUBLISH_REPO`]"
+msgstr "- `-r`, `--repository`: 要将包发布到的存储库名称或 URL [环境变量：`PDM_PUBLISH_REPO`]"
+
+msgid "- `-u`, `--username`: The username to access the repository [env var: `PDM_PUBLISH_USERNAME`]"
+msgstr "- `-u`, `--username`: 访问存储库的用户名 [环境变量：`PDM_PUBLISH_USERNAME`]"
+
+msgid "- `-P`, `--password`: The password to access the repository [env var: `PDM_PUBLISH_PASSWORD`]"
+msgstr "- `-P`, `--password`: 访问存储库的密码 [环境变量：`PDM_PUBLISH_PASSWORD`]"
+
+msgid "- `-S`, `--sign`: Upload the package with PGP signature"
+msgstr "- `-S`, `--sign`: 使用 PGP 签名上传包"
+
+msgid "- `-i`, `--identity`: GPG identity used to sign files."
+msgstr "- `-i`, `--identity`: 用于签名文件的 GPG 身份。"
+
+msgid "- `-c`, `--comment`: The comment to include with the distribution file."
+msgstr "- `-c`, `--comment`: 要包含在分发文件中的注释。"
+
+msgid "- `--no-build`: Don't build the package before publishing (default: `False`)"
+msgstr "- `-c`, `--comment`: 要包含在分发文件中的注释。"
+
+msgid "- `-d`, `--dest`: The directory to upload the package from (default: `dist`)"
+msgstr "- `-d`, `--dest`: 从该目录上传包（默认：`dist`）"
+
+msgid "- `--skip-existing`: Skip uploading files that already exist. This may not work with some repository implementations."
+msgstr "- `--skip-existing`: 跳过上传已存在的文件。 这可能不适用于某些存储库实现。"
+
+msgid "- `--no-very-ssl`: Disable SSL verification"
+msgstr "- `--no-very-ssl`: 禁用 SSL 验证"
+
+msgid "- `--ca-certs`: The path to a PEM-encoded Certificate Authority bundle to use for publish server validation [env var: `PDM_PUBLISH_CA_CERTS`]"
+msgstr "- `--ca-certs`: 要用于发布服务器验证的 PEM 编码的 CA 证书文件的路径 [环境变量：`PDM_PUBLISH_CA_CERTS`]"
+
+msgid "Manage installed Python interpreters"
+msgstr "管理已安装的 Python 解释器"
+
+msgid "List all Python interpreters installed with PDM"
+msgstr "列出所有使用 PDM 安装的 Python 解释器"
+
+msgid "Remove a Python interpreter installed with PDM"
+msgstr "删除使用 PDM 安装的 Python 解释器"
+
+msgid "- `version`: The Python version to remove. E.g. cpython@3.10.3"
+msgstr "- `version`: 要删除的 Python 版本。例如 cpython@3.10.3"
+
+msgid "Install a Python interpreter with PDM"
+msgstr "用 PDM 安装 Python 解释器"
+
+msgid "- `--list`, `-l`: List all available Python versions"
+msgstr "- `--list`, `-l`: 列出所有可用的 Python 版本"
+
+msgid "Manage installed Python interpreters"
+msgstr "管理已安装的 Python 解释器"
+
+msgid "List all Python interpreters installed with PDM"
+msgstr "列出所有使用 PDM 安装的 Python 解释器"
+
+msgid "Remove a Python interpreter installed with PDM"
+msgstr "删除使用 PDM 安装的 Python 解释器"
+
+msgid "- `version`: The Python version to install. E.g. cpython@3.10.3"
+msgstr "- `version`: 要安装的 Python 版本。例如 cpython@3.10.3"
+
+msgid "Remove packages from pyproject.toml"
+msgstr "从 pyproject.toml 中删除包"
+
+msgid "- `packages`: Specify the packages to remove"
+msgstr "- `packages`: 指定要删除的包"
+
+msgid "- `--dry-run`: Show the difference only and don't perform any action"
+msgstr "- `--dry-run`: 仅显示差异，不执行任何操作"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定另一个锁定文件路径。默认：`pdm.lock`。 [环境变量：`PDM_LOCKFILE`]"
+
+msgid "- `--frozen-lockfile`, `--no-lock`: Don't try to create or update the lockfile. [env var: `PDM_FROZEN_LOCKFILE`]"
+msgstr "- `--frozen-lockfile`, `--no-lock`: 不尝试创建或更新锁定文件。 [环境变量：`PDM_FROZEN_LOCKFILE`]"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。 可以多次提供。 使用`:all`跳过所有钩子。 使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `-d`, `--dev`: Remove packages from dev dependencies"
+msgstr "- `-d`, `--dev`: 从开发依赖项中删除包"
+
+msgid "- `-G`, `--group`: Specify the target dependency group to remove from"
+msgstr "- `-G`, `--group`: 指定要从中删除包的目标依赖项组"
+
+msgid "- `--no-sync`: Only write`pyproject.toml` and do not uninstall packages (default: `False`)"
+msgstr "- `--no-sync`: 只写`pyproject.toml`并取消安装包（默认：`False`）"
+
+msgid "- `--no-editable`: Install non-editable versions for all packages. [env var: `PDM_NO_EDITABLE`]"
+msgstr "- `--no-editable`: 为所有包安装非可编辑版本。 [环境变量：`PDM_NO_EDITABLE`]"
+
+msgid "- `--no-self`: Don't install the project itself. [env var: `PDM_NO_SELF`]"
+msgstr "- `--no-self`: 不安装项目本身。 [环境变量：`PDM_NO_SELF`]"
+
+msgid "- `--fail-fast`, `-x`: Abort on first installation error"
+msgstr "- `--fail-fast`, `-x`: 在首次安装错误时中止"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 在构建遵循 PEP 517 的源分发时禁用隔离，即：如果使用此选项，PEP 518 中指定的构建依赖项必须已安装。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after '=': `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建程序。 具有值的选项必须指定为“=”后的值：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "Run commands or scripts with local packages loaded"
+msgstr "以本地包加载运行命令或脚本"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。 可以多次提供。 使用`:all`跳过所有钩子。 使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `-l`, `--list`: Show all available scripts defined in`pyproject.toml`"
+msgstr "- `-l`, `--list`: 显示`pyproject.toml`中定义的所有可用脚本"
+
+msgid "- `-j`, `--json`: Output all scripts infos in JSON"
+msgstr "- `-j`, `--json`: 将所有脚本信息输出为 JSON"
+
+msgid "- `-s`, `--site-packages`: Load site-packages from the selected interpreter"
+msgstr "- `-s`, `--site-packages`: 从所选解释器中加载 site-packages"
+
+msgid "- `script`: The command to run"
+msgstr "- `script`: 要运行的命令"
+
+msgid "- `args`: Arguments that will be passed to the command"
+msgstr "- `args`: 将传递给命令的参数"
+
+msgid "Search for PyPI packages"
+msgstr "搜索 PyPI 包"
+
+msgid "- `query`: Query string to search"
+msgstr "- `query`: 要搜索的查询字符串"
+
+msgid "Manage the PDM program itself (previously known as plugin)"
+msgstr "管理 PDM 本身（以前称为插件）"
+
+msgid "List all packages installed with PDM"
+msgstr "列出所有使用 PDM 安装的包"
+
+msgid "- `--plugins`: List plugins only"
+msgstr "- `--plugins`: 仅列出插件"
+
+msgid "Install packages to the PDM's environment"
+msgstr "安装包到 PDM 的环境"
+
+msgid "- `packages`: Specify one or many package names, each package can have a version specifier"
+msgstr "- `packages`: 指定一个或多个包名称，每个包都可以有一个版本规范符"
+
+msgid "- `--pip-args`: Arguments that will be passed to pip install"
+msgstr "- `--pip-args`: 将传递给 pip 安装的参数"
+
+msgid "Remove packages from PDM's environment"
+msgstr "从 PDM 的环境中删除包"
+
+msgid "- `packages`: Specify one or many package names"
+msgstr "- `packages`: 指定一个或多个包名称"
+
+msgid "- `--pip-args`: Arguments that will be passed to pip uninstall"
+msgstr "- `--pip-args`: 将传递给 pip 卸载的参数"
+
+msgid "- `-y`, `--yes`: Answer yes on the question"
+msgstr "- `-y`, `--yes`: 在问题上回答“是”"
+
+msgid "Update PDM itself"
+msgstr "更新 PDM 本身"
+
+msgid "- `--head`: Update to the latest commit on the main branch"
+msgstr "- `--head`: 更新到主分支的最新提交"
+
+msgid "- `--pre`: Update to the latest prerelease version"
+msgstr "- `--pre`: 更新到最新的预发行版本"
+
+msgid "- `--pip-args`: Additional arguments that will be passed to pip install"
+msgstr "- `--pip-args`: 将传递给 pip 安装的附加参数"
+
+msgid "Manage the PDM program itself (previously known as plugin)"
+msgstr "管理 PDM 本身（以前称为插件）"
+
+msgid "List all packages installed with PDM"
+msgstr "列出所有使用 PDM 安装的包"
+
+msgid "- `--plugins`: List plugins only"
+msgstr "- `--plugins`: 仅列出插件"
+
+msgid "Install packages to the PDM's environment"
+msgstr "安装包到 PDM 的环境"
+
+msgid "- `packages`: Specify one or many package names, each package can have a version specifier"
+msgstr "- `packages`: 指定一个或多个包名称，每个包都可以有一个版本规范符"
+
+msgid "- `--pip-args`: Arguments that will be passed to pip install"
+msgid "- `--pip-args`: 将传递给 pip 安装的参数"
+
+msgid "Remove packages from PDM's environment"
+msgstr "从 PDM 的环境中删除包"
+
+msgid "- `packages`: Specify one or many package names"
+msgid "- `--pip-args`: 将传递给 pip 卸载的参数"
+
+msgid "- `--pip-args`: Arguments that will be passed to pip uninstall"
+msgstr "- `--pip-args`: 将传递给 pip 卸载的参数"
+
+msgid "- `-y`, `--yes`: Answer yes on the question"
+msgstr "- `-y`, `--yes`: 在问题上回答“是”"
+
+msgid "Update PDM itself"
+msgstr "更新 PDM 本身"
+
+msgid "- `--head`: Update to the latest commit on the main branch"
+msgstr "- `--head`: 更新到主分支的最新提交"
+
+msgid "- `--pre`: Update to the latest prerelease version"
+msgstr "- `--pre`: 更新到最新的预发行版本"
+
+msgid "- `--pip-args`: Additional arguments that will be passed to pip install"
+msgstr "- `--pip-args`: 将传递给 pip 安装的附加参数"
+
+msgid "Show the package information"
+msgstr "显示包信息"
+
+msgid "- `package`: Specify the package name, or show this package if not given"
+msgstr "- `package`: 指定包名称，如果没有给出，则显示该包"
+
+msgid "- `--name`: Show name"
+msgstr "- `--name`: 显示名称"
+
+msgid "- `--version`: Show version"
+msgstr "- `--version`: 显示版本"
+
+msgid "- `--summary`: Show summary"
+msgstr "- `--summary`: 显示摘要"
+
+msgid "- `--license`: Show license"
+msgstr "- `--license`: 显示许可证"
+
+msgid "- `--platform`: Show platform"
+msgstr "- `--platform`: 显示平台"
+
+msgid "- `--keywords`: Show keywords"
+msgstr "- `--keywords`: 显示关键字"
+
+msgid "Synchronize the current working set with lock file"
+msgstr "将当前工作集与锁定文件同步"
+
+msgid "- `--dry-run`: Show the difference only and don't perform any action"
+msgstr "- `--dry-run`: 仅显示差异，不执行任何操作"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定另一个锁定文件路径。默认：`pdm.lock`。 [环境变量：`PDM_LOCKFILE`]"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。可以多次提供。使用`:all`跳过所有钩子。使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `--clean`: Clean packages not in the lockfile"
+msgstr "- `--clean`: 清理不在锁定文件中的包"
+
+msgid "- `--only-keep`: Only keep the selected packages"
+msgstr "- `--only-keep`: 只保留所选包"
+
+msgid "- `-r`, `--reinstall`: Force reinstall existing dependencies"
+msgstr "- `--reinstall`: 强制重新安装现有依赖项"
+
+msgid "- `--no-editable`: Install non-editable versions for all packages. [env var: `PDM_NO_EDITABLE`]"
+msgstr "- `--no-editable`: 为所有包安装不可编辑版本。 [环境变量：`PDM_NO_EDITABLE`]"
+
+msgid "- `--no-self`: Don't install the project itself. [env var: `PDM_NO_SELF`]"
+msgstr "- `--no-self`: 不安装项目本身。 [环境变量：`PDM_NO_SELF`]"
+
+msgid "- `--fail-fast`, `-x`: Abort on first installation error"
+msgstr "- `--fail-fast`, `-x`: 在首次安装错误时中止"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 在构建遵循 PEP 517 的源分发时禁用隔离，即：如果使用此选项，PEP 518 中指定的依赖项必须已安装。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after '=': `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建器。具有值的选项必须在“=”之后指定：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "- `-G`, `--group`, `--with` `GROUP`: Select group of optional-dependencies separated by comma or dev-dependencies (with `-d`). Can be supplied multiple times, use`:all` to include all groups under the same species."
+msgstr "- `-G`, `--group`, `--with` `GROUP`: 以逗号分隔的选择可选依赖项组或开发依赖项（使用`-d`）。可以多次提供。使用`:all`包括同一物种下的所有组。"
+
+msgid "- `--without`: Exclude groups of optional-dependencies or dev-dependencies"
+msgstr "- `--without`: 排除可选依赖项组或开发依赖项"
+
+msgid "- `--no-default`: Don't include dependencies from the default group (default: `False`)"
+msgstr "- `--no-default`: 不包括默认组的依赖项（默认：`False`）"
+
+msgid "- `-d`, `--dev`: Select dev dependencies"
+msgstr "- `-d`, `--dev`: 选择开发依赖项"
+
+msgid "- `--prod`, `--production`: Unselect dev dependencies (default: `True`)"
+msgstr "- `--prod`, `--production`: 取消选择开发依赖项（默认：`True`）"
+
+msgid "Update package(s) in pyproject.toml"
+msgstr "更新 pyproject.toml 中的包"
+
+msgid "- `packages`: If packages are given, only update them"
+msgstr "- `packages`: 如果给出包，则只更新它们"
+
+msgid "- `-L`, `--lockfile`: Specify another lockfile path. Default:`pdm.lock`. [env var: `PDM_LOCKFILE`]"
+msgstr "- `-L`, `--lockfile`: 指定另一个锁定文件路径。默认：`pdm.lock`。 [环境变量：`PDM_LOCKFILE`]"
+
+msgid "- `--frozen-lockfile`, `--no-lock`: Don't try to create or update the lockfile. [env var: `PDM_FROZEN_LOCKFILE`]"
+msgstr "- `--frozen-lockfile`, `--no-lock`: 不尝试创建或更新锁定文件。 [环境变量：`PDM_FROZEN_LOCKFILE`]"
+
+msgid "- `--save-compatible`: Save compatible version specifiers"
+msgstr "- `--save-compatible`: 保存兼容版本规范符"
+
+msgid "- `--save-wildcard`: Save wildcard version specifiers"
+msgstr "- `--save-wildcard`: 保存通配符版本规范符"
+
+msgid "- `--save-exact`: Save exact version specifiers"
+msgstr "- `--save-exact`: 保存精确版本规范符"
+
+msgid "- `--save-minimum`: Save minimum version specifiers"
+msgstr "- `--save-minimum`: 保存最小版本规范符"
+
+msgid "- `--update-reuse`: Reuse pinned versions already present in lock file if possible"
+msgstr "- `--update-reuse`: 如果可能，尝试更新已存在锁定文件中的已固定版本"
+
+msgid "- `--update-eager`: Try to update the packages and their dependencies recursively"
+msgstr "- `--update-eager`: 尝试递归更新包及其依赖项"
+
+msgid "- `--update-all`: Update all dependencies and sub-dependencies"
+msgstr "- `--update-all`: 更新所有依赖项和子依赖项"
+
+msgid "- `--update-reuse-installed`: Reuse installed packages if possible"
+msgstr "- `--update-reuse-installed`: 如果可能，尝试更新已安装的包及其依赖项"
+
+msgid "- `--pre`, `--prerelease`: Allow prereleases to be pinned"
+msgstr "- `--pre`, `--prerelease`: 允许预发布版本被固定"
+
+msgid "- `-u`, `--unconstrained`: Ignore the version constraint of packages"
+msgstr "- `-u`, `--unconstrained`: 忽略包的版本约束条件"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。可以多次提供。使用`:all`跳过所有钩子。使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `-t`, `--top`: Only update those listed in`pyproject.toml`"
+msgstr "- `-t`, `--top`: 仅更新`pyproject.toml`中列出的包"
+
+msgid "- `--dry-run`, `- `--no-sync`: Only update lock file but do not sync packages (default: `False`)"
+msgstr "- `--dry-run`, `--outdated`: 仅显示差异而不修改锁定文件内容 （默认：`False`）"
+
+msgid "- `--no-sync`: Only update lock file but do not sync packages (default: `False`)"
+msgstr "- `--no-sync`: 仅更新锁定文件而不同步包（默认：`False`）"
+
+msgid "- `--no-editable`: Install non-editable versions for all packages. [env var: `PDM_NO_EDITABLE`]"
+msgstr "- `--no-editable`: 为所有包安装不可编辑版本。 [环境变量：`PDM_NO_EDITABLE`]"
+
+msgid "- `--no-self`: Don't install the project itself. [env var: `PDM_NO_SELF`]"
+msgstr "- `--no-self`: 不安装项目本身。 [环境变量：`PDM_NO_SELF`]"
+
+msgid "- `--fail-fast`, `-x`: Abort on first installation error"
+msgstr "- `--fail-fast`, `-x`: 在首次安装错误时中止"
+
+msgid "- `--no-isolation`: Disable isolation when building a source distribution that follows PEP 517, as in: build dependencies specified by PEP 518 must be already installed if this option is used."
+msgstr "- `--no-isolation`: 在构建遵循 PEP 517 的源分发时禁用隔离，即：如果使用此选项，PEP 518 中指定的构建依赖项必须已安装。"
+
+msgid "- `--config-setting`, `-C`: Pass options to the builder. options with a value must be specified after '=': `--config-setting=key(=value)` or `-Ckey(=value)`"
+msgstr "- `--config-setting`, `-C`: 将选项传递给构建器。具有值的选项必须在后面指定：`--config-setting=key(=value)` 或 `-Ckey(=value)`"
+
+msgid "- `-G`, `--group`, `--with` `GROUP`: Select group of optional-dependencies separated by comma or dev-dependencies (with `-d`). Can be supplied multiple times, use`:all` to include all groups under the same species."
+msgstr "- `-G`, `--group`, `--with` `GROUP`: 以逗号分隔的选择可选依赖项组或开发依赖项（使用`-d`）。可以多次提供。使用`:all`包括同一物种下的所有组。"
+
+msgid "- `--without`: Exclude groups of optional-dependencies or dev-dependencies"
+msgstr "- `--without`: 排除可选依赖项组或开发依赖项"
+
+msgid "- `--no-default`: Don't include dependencies from the default group (default: `False`)"
+msgstr "- `--no-default`: 不包括默认组的依赖项（默认：`False`）"
+
+msgid "- `-d`, `--dev`: Select dev dependencies"
+msgstr "- `-d`, `--dev`: 选择开发依赖项"
+
+msgid "- `--prod`, `--production`: Unselect dev dependencies"
+msgstr "- `--prod`, `--production`: 取消选择开发依赖项"
+
+msgid "Use the given python version or path as base interpreter. If not found, PDM will try to install one."
+msgstr "- `--python`: 指定 Python 版本或路径作为基础解释器。如果找不到，PDM 将尝试安装一个。"
+
+msgid "- `python`: Specify the Python version or path"
+msgstr "- `python`: 指定 Python 版本或路径"
+
+msgid "- `-k`, `--skip`: Skip some tasks and/or hooks by their comma-separated names. Can be supplied multiple times. Use`:all` to skip all hooks. Use`:pre` and`:post` to skip all pre or post hooks."
+msgstr "- `-k`, `--skip`: 通过逗号分隔的名称跳过某些任务和/或钩子。可以多次提供。使用`:all`跳过所有钩子。使用`:pre`和`:post`跳过所有预或后钩子。"
+
+msgid "- `-f`, `--first`: Select the first matched interpreter"
+msgstr "- `-f`, `--first`: 选择匹配的第一个解释器"
+
+msgid "- `-i`, `--ignore-remembered`: Ignore the remembered selection"
+msgstr "- `-i`, `--ignore-remembered`: 忽略记住的选择"
+
+msgid "- `--venv`: Use the interpreter in the virtual environment with the given name"
+msgstr "- `--venv`: 使用给定名称的虚拟环境中的解释器"
+
+msgid "Virtualenv management"
+msgstr "虚拟环境管理"
+
+msgid "- `--path`: Show the path to the given virtualenv"
+msgstr "- `--path`: 显示给定虚拟环境的路径"
+
+msgid "- `--python`: Show the python interpreter path for the given virtualenv"
+msgstr "- `--python`: 显示给定虚拟环境的 Python 解释器路径"
+
+msgid "Create a virtualenv"
+msgstr "创建虚拟环境"
+
+msgid "- `python`: Specify which python should be used to create the virtualenv"
+msgstr "- `python`: 指定应用于创建虚拟环境的 Python"
+
+msgid "- `venv_args`: Additional arguments that will be passed to the backend"
+msgstr "- `venv_args`: 将传递给后端的附加参数"
+
+msgid "- `-w`, `--with`: Specify the backend to create the virtualenv"
+msgstr "- `-w`, `--with`: 指定用于创建虚拟环境的后端"
+
+msgid "- `-f`, `--force`: Recreate if the virtualenv already exists"
+msgstr "- `-f`, `--force`: 如果虚拟环境已存在，则重新创建"
+
+msgid "- `-n`, `--name`: Specify the name of the virtualenv"
+msgstr "- `-n`, `--name`: 指定虚拟环境的名称"
+
+msgid "- `--with-pip`: Install pip with the virtualenv"
+msgstr "- `--with-pip`: 与虚拟环境一起安装 pip"
+
+msgid "List all virtualenvs associated with this project"
+msgstr "列出与此项目关联的所有虚拟环境"
+
+msgid "Remove the virtualenv with the given name"
+msgstr "删除具有给定名称的虚拟环境"
+
+msgid "- `env`: The key of the virtualenv"
+msgstr "- `env`: 虚拟环境的键"
+
+msgid "- `-y`, `--yes`: Answer yes on the following question"
+msgstr "- `-y`, `--yes`: 在以下问题上回答 Yes"
+
+#: Print the command to activate the virtualenv with the given name
+msgid "Print the command to activate the virtualenv with the given name"
+msgstr "打印用于激活具有给定名称的虚拟环境的命令"
+
+msgid "- `env`: The key of the virtualenv"
+msgstr "- `env`: 虚拟环境的键"
+
+msgid "Purge selected/all created Virtualenvs"
+msgstr "清除所选/所有创建的虚拟环境"
+
+msgid "- `-f`, `--force`: Force purging without prompting for confirmation"
+msgstr "- `-f`, `--force`: 强制清除而不需要确认"
+
+msgid "- `-i`, `--interactive`: Interactively purge selected Virtualenvs"
+msgstr "- `-i`, `--interactive`: 以交互方式清除选定的 Virtualenvs"
