@@ -74,13 +74,13 @@ python3 install-pdm.py [options]
 usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d DEP]
 
 可选参数:
--h, --help            显示帮助信息并退出
--v VERSION, --version VERSION | envvar: PDM_VERSION
+  -h, --help            显示帮助信息并退出
+  -v VERSION, --version VERSION | envvar: PDM_VERSION
                         指定要安装的版本，或使用 HEAD 从主分支安装
---prerelease | envvar: PDM_PRERELEASE    允许安装预发行版本
---remove | envvar: PDM_REMOVE            移除 PDM 安装
--p PATH, --path PATH | envvar: PDM_HOME  指定安装 PDM 的位置
--d DEP, --dep DEP | envvar: PDM_DEPS     指定额外的依赖项，可以多次指定
+  --prerelease | envvar: PDM_PRERELEASE    允许安装预发行版本
+  --remove | envvar: PDM_REMOVE            移除 PDM 安装
+  -p PATH, --path PATH | envvar: PDM_HOME  指定安装 PDM 的位置
+  -d DEP, --dep DEP | envvar: PDM_DEPS     指定额外的依赖项，可以多次指定
 ```
 
 您可以在运行的安装脚本命令的后面传递选项，也可以设置环境变量 env var 值。
