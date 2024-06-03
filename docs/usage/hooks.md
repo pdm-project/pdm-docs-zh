@@ -1,6 +1,7 @@
 # 生命周期与钩子
 
-与任何 Python 交付件一样，您的项目将经历 Python 项目生命周期的不同阶段，并且 PDM 提供了执行这些阶段所需任务的命令。
+与任何 Python 交付件一样，您的项目将经历 Python 项目生命周期的不同阶段，
+并且 PDM 提供了执行这些阶段所需任务的命令。
 
 它还提供了附加到这些步骤的钩子，允许：
 
@@ -15,13 +16,15 @@
 - [依赖管理](#dependencies-management)
 - [发布阶段](#publication)
 
-您可能需要在安装和发布阶段之间执行一些重复性任务（清理，代码检查，测试等），这就是为什么PDM 让您使用 [用户脚本](#user-scripts) 定义自己的任务/阶段的原因。
+您可能需要在安装和发布阶段之间执行一些重复性任务（清理，代码检查，测试等），
+这就是为什么PDM 让您使用 [用户脚本](#user-scripts) 定义自己的任务/阶段的原因。
 
 为了提供完全的灵活性，PDM 允许 [跳过某些钩子和任务](#skipping)。
 
-## Initialization
+## <span id="initialization">初始化阶段</span>
 
-初始化阶段应该在项目生命周期中仅发生一次，通过运行 [`pdm init`](../reference/cli.md#init) 命令来初始化现有项目（提示填写 `pyproject.toml` 文件）。
+初始化阶段应该在项目生命周期中仅发生一次，
+通过运行 [`pdm init`](../reference/cli.md#init) 命令来初始化现有项目（提示填写 `pyproject.toml` 文件）。
 
 它们触发以下钩子：
 
@@ -36,7 +39,7 @@ flowchart LR
   end
 ```
 
-## Dependencies management
+## <span id="dependencies-management">依赖管理</span>
 
 依赖管理对于开发者能够工作并执行以下操作是必需的：
 
@@ -87,7 +90,8 @@ flowchart LR
 ### 切换 Python 版本
 
 这是依赖管理中的一个特殊情况：
-您可以使用 [`pdm use`](../reference/cli.md#use) 切换当前的 Python 版本，并且它将发出具有新 Python 解释器的 [`post_use`][pdm.signals.post_use] 信号。
+您可以使用 [`pdm use`](../reference/cli.md#use) 切换当前的 Python 版本，
+并且它将发出具有新 Python 解释器的 [`post_use`][pdm.signals.post_use] 信号。
 
 ```mermaid
 flowchart LR
@@ -98,7 +102,7 @@ flowchart LR
   end
 ```
 
-## 发布
+## <span id="publication">发布阶段</span>
 
 一旦您准备好发布您的包/库，您将需要执行发布任务：
 
@@ -142,7 +146,7 @@ flowchart LR
 
 执行将在第一个失败时停止，包括钩子。
 
-## 用户脚本
+## <span id="user-scripts">用户脚本</span>
 
 [用户脚本在其自己的部分中详细说明](scripts.md) 但您应该知道：
 
@@ -220,7 +224,7 @@ flowchart LR
   end
 ```
 
-## 跳过
+## <span id="skipping">跳过某些钩子和任务</span>
 
 可以使用 `--skip` 选项控制任何内置命令以及自定义用户脚本运行哪些任务和钩子。
 

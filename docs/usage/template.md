@@ -1,6 +1,5 @@
 # 从模板创建项目
 
-
 从模板创建项目
 类似于 `yarn create` 和 `npm create`，PDM 也支持从模板初始化或创建项目。模板作为 `pdm init` 的位置参数给出，可以采用以下形式之一：
 
@@ -16,7 +15,8 @@
 
 ## 贡献模板
 
-根据模板参数的第一个形式，`pdm init <name>` 将引用位于 `https://github.com/pdm-project/template-<name>` 的模板存储库。要贡献模板，您可以创建一个模板存储库，并提出请求将所有权转移给 `pdm-project` 组织（可以在存储库设置页面的底部找到）。组织的管理员将审核请求并完成后续步骤。如果转移被接受，您将被添加为存储库的维护者。
+根据模板参数的第一个形式，`pdm init <name>` 将引用位于 `https://github.com/pdm-project/template-<name>` 的模板存储库。
+要贡献模板，您可以创建一个模板存储库，并提出请求将所有权转移给 `pdm-project` 组织（可以在存储库设置页面的底部找到）。组织的管理员将审核请求并完成后续步骤。如果转移被接受，您将被添加为存储库的维护者。
 
 ## 模板的要求
 
@@ -40,7 +40,8 @@
 
 如果您正在寻找更强大的项目生成器，您可以通过 `--cookiecutter` 选项使用 [cookiecutter](https://github.com/cookiecutter/cookiecutter) 以及通过 `--copier` 选项使用 [copier](https://github.com/copier-org/copier)。
 
-您需要分别安装 `cookiecutter` 和 `copier` 来使用它们。您可以通过运行 `pdm self add <package>` 来完成。要使用它们：
+您需要分别安装 `cookiecutter` 和 `copier` 来使用它们。您可以通过运行 `pdm self add <package>` 来完成。
+要使用它们：
 
 ```bash
 pdm init --cookiecutter gh:cjolowicz/cookiecutter-hypermodern-python

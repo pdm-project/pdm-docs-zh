@@ -1,6 +1,7 @@
 # 配置项目
 
-PDM的 `config` 命令的工作方式与 `git config` 类似，只是不需要 `--list` 来显示配置。
+PDM的 `config` 命令的工作方式与 `git config` 类似，
+只是不需要 `--list` 来显示配置。
 
 显示当前配置：
 
@@ -34,7 +35,7 @@ pdm config --local pypi.url "https://test.pypi.org/simple"
 
 1. `<PROJECT_ROOT>/pdm.toml` - 项目配置
 2. `<CONFIG_ROOT>/config.toml` - 用户配置
-3. `<SITE_CONFIG_ROOT>/config.toml` - 站点配置 <!-- TODO 站点？还是全局 -->
+3. `<SITE_CONFIG_ROOT>/config.toml` - 站点配置
 
 其中 `<CONFIG_ROOT>` 的存储位置为：
 
@@ -48,7 +49,7 @@ pdm config --local pypi.url "https://test.pypi.org/simple"
 - `/Library/Application Support/pdm` 在 macOS 上的默认位置由 [Apple 文件系统基础知识所定义](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
 - `C:\ProgramData\pdm\pdm` 在 Windows 上的默认位置由 [已知文件夹](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 中定义
 
-如果使用 `-g/--global` 选项，则第一项将替换为 `<CONFIG_ROOT>/global-project/pdm.toml`。 <!-- TODO 第一项是什么？ -->
+如果使用 `-g/--global` 选项，则第一项将替换为 `<CONFIG_ROOT>/global-project/pdm.toml`。
 
 您可以在配置页面中找到所有可用的 [配置项目](../reference/configuration.md).
 
@@ -66,8 +67,6 @@ pdm config --local pypi.url "https://test.pypi.org/simple"
 您可以通过设置 `python.providers` 取消选择其中一些或更改顺序：
 
 ```bash
-# 默认内容为
-# ['venv', 'path', 'asdf', 'pyenv', 'rye', 'winreg', 'macos']
 pdm config python.providers rye   # 只使用 Rye 来管理 Python 的虚拟环境
 pdm config python.providers pyenv,asdf  # 使用 pyenv 和 asdf 来管理 Python 的虚拟环境
 ```
@@ -136,7 +135,9 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
     ```
 
 ??? note "`pyproject.toml` 中的索引和配置"
-    当您想与将要使用该项目的其他人共享索引时，您应该将它们添加到 `pyproject.toml` 中。例如，某些包仅存在于专用索引中，如果有人未配置索引，则无法安装。否则，请将它们存储在其他人看不到的本地配置中。
+    当您想与将要使用该项目的其他人共享索引时，您应该将它们添加到 `pyproject.toml` 中。
+    例如，某些包仅存在于专用索引中，如果有人未配置索引，则无法安装。
+    否则，请将它们存储在其他人看不到的本地配置中。
 
 ### 尊重来源的顺序
 
@@ -185,8 +186,8 @@ pdm config repository.pypi.ca_certs /path/to/ca_bundle.pem
 ```
 
 此外，还可以使用系统信任存储而不是捆绑的 certifi 证书来验证 HTTPS 证书。此方法通常支持公司代理证书，而无需其他配置。
-<!-- TODO truststore 没有个超链接解释下是啥 -->
-要使用 `truststore` ，您需要 Python 3.10 或更高版本，并安装 `truststore` 到与 PDM 相同的环境中： 
+
+要使用 `truststore` ，您需要 Python 3.10 或更高版本，并安装 `truststore` 到与 PDM 相同的环境中：
 
 ```bash
 pdm self add truststore
@@ -194,7 +195,9 @@ pdm self add truststore
 
 ### 索引配置合并
 
-索引配置与配置文件中的 `[[tool.pdm.source]]` 表或 `pypi.<name>` 键 `name` 字段合并。这使你能够单独存储 url 和凭据，以避免机密在源代码管理中公开。例如，如果您有以下配置：
+索引配置与配置文件中的 `[[tool.pdm.source]]` 表或 `pypi.<name>` 键 `name` 字段合并。
+这使你能够单独存储 url 和凭据，以避免机密在源代码管理中公开。
+例如，如果您有以下配置：
 
 ```toml
 [[tool.pdm.source]]
@@ -210,9 +213,8 @@ pdm config pypi.private.password "bar"
 ```
 
 PDM 可以从两个位置检索索引的 `private` 配置。
-<!-- TODO keyring 是啥 -->
-如果索引需要用户名和密码，但无法从环境变量和配置文件中找到它们，PDM 将提示您输入它们。或者，如果 `keyring` 已安装，它将用作凭据存储。PDM 可以使用 `keyring` 已安装软件包或 CLI 中的 。
 
+如果索引需要用户名和密码，但无法从环境变量和配置文件中找到它们，PDM 将提示您输入它们。或者，如果 `keyring` 已安装，它将用作凭据存储。PDM 可以使用 `keyring` 已安装软件包或 CLI 中的 。
 
 ## 集中式软件包存储库
 
@@ -240,7 +242,7 @@ pdm config install.cache on
 
 ## 配置要上传的存储库
 
-使用该 [`pdm publish`](../reference/cli.md#publish) 命令时，它会从全局配置文件 (`<CONFIG_ROOT>/config.toml`) 中读取存储库密钥。配置内容如下：
+使用该 [`pdm publish`](../reference/cli.md#publish) 命令时，它会从**全局**配置文件 (`<CONFIG_ROOT>/config.toml`) 中读取存储库密钥。配置内容如下：
 
 ```toml
 [repository.pypi]
@@ -266,10 +268,12 @@ export PDM_PUBLISH_CA_CERTS=...
 PEM 编码的证书颁发机构捆绑包 （ `ca_certs` ） 可用于本地/自定义 PyPI 存储库，其中服务器证书未由标准 [certifi](https://github.com/certifi/python-certifi/blob/master/certifi/cacert.pem) CA 捆绑包签名。
 
 !!! NOTE
-    存储库与上一节中的索引不同。存储库用于发布，而索引用于锁定和解析。它们不共享配置。
+    存储库与上一节中的索引不同。
+    存储库用于发布，而索引用于锁定和解析。它们不共享配置。
 
 !!! TIP
-    您无需配置 `pypi` 和 `testpypi` 仓库的 URL，它们已填充默认值。用户名、密码和证书颁发机构捆绑包可以通过命令行传递给 `pdm publish`，分别使用 `--username`、`--password` 和 `--ca-certs`。
+    您无需配置 `pypi` 和 `testpypi` 仓库的 URL，它们已填充默认值。
+    用户名、密码和证书颁发机构捆绑包可以通过命令行传递给 `pdm publish`，分别使用 `--username`、`--password` 和 `--ca-certs`。
 
 要从命令行更改存储库配置，请使用以下 [`pdm config`](../reference/cli.md#config) 命令：
 
@@ -297,11 +301,24 @@ pdm self add keyring
 export PATH=$PATH:path/to/keyring/bin
 ```
 
+### 使用 Azure Artifacts 的钥匙链进行密码管理
+
+尝试对 Azure 项目进行身份验证时，可以通过使用 AD 组进行身份验证来实现：`pdm self add keyring artifacts-keyring`，确保项目密钥环将用于身份验证。
+
+然后将原型 url 添加到 `pyproject.toml`
+
+```toml
+[[tool.pdm.source]]
+name = "NameOfFeed"
+url = "https://pkgs.dev.azure.com/[org name]/_packaging/[feed name]/pypi/simple/"
+```
+
 ## 使用覆盖功能解决包的依赖问题
 
 +++ 1.12.0
 
-有时，由于上游库设置的版本范围不正确，无法修复依赖项解析。在这种情况下，您可以使用 PDM 的覆盖功能来强制安装特定版本的软件包。
+有时，由于上游库设置的版本范围不正确，无法修复依赖项解析。
+在这种情况下，您可以使用 PDM 的覆盖功能来强制安装特定版本的软件包。
 
 给定以下 `pyproject.toml` 配置：
 
@@ -312,10 +329,12 @@ urllib3 = ">=1.26.2"  # 版本范围
 pytz = "https://mypypi.org/packages/pytz-2020.9-py3-none-any.whl"  # absolute URL
 ```
 
-该表中的每个条目都是一个包名及其所需的版本。在这个例子中，PDM将解析上述包，无论是否存在其他可用的解决方案，都会将其解析为给定的版本。
+该表中的每个条目都是一个包名及其所需的版本。
+在这个例子中，PDM将解析上述包，无论是否存在其他可用的解决方案，都会将其解析为给定的版本。
 
 !!! warning
-    通过使用 `[tool.pdm.resolution.overrides]` 设置，您自行承担由该解决方案引起的任何不兼容性的风险。只有当您的要求没有有效的解决方案并且您知道特定版本有效时，才可以使用它。大多数情况下，您可以将任何短暂的约束添加到依赖关系数组中。
+    通过使用 `[tool.pdm.resolution.overrides]` 设置，您自行承担由该解决方案引起的任何不兼容性的风险。
+    只有当您的要求没有有效的解决方案并且您知道特定版本有效时，才可以使用它。大多数情况下，您可以将任何短暂的约束添加到依赖关系数组中。
 
 ## 从锁定文件中排除特定包及其依赖项
 
@@ -343,7 +362,8 @@ install = ["--no-self"]
 lock = ["--no-cross-platform"]
 ```
 
-这些选项将在命令名之后添加。例如，根据上述配置，`pdm add requests` 等同于 `pdm add --no-isolation --no-self requests`。
+这些选项将在命令名之后添加。
+例如，根据上述配置，`pdm add requests` 等同于 `pdm add --no-isolation --no-self requests`。
 
 ## 忽略包警告
 
@@ -351,7 +371,7 @@ lock = ["--no-cross-platform"]
 
 解析依赖项时，您可能会看到一些警告，如下所示：
 
-```txt
+```bash
 PackageWarning: Skipping scipy@1.10.0 because it requires Python
 <3.12,>=3.8 but the project claims to work with Python>=3.9.
 Narrow down the `requires-python` range to include this version. For example, ">=3.9,<3.12" should work.
@@ -359,7 +379,8 @@ Narrow down the `requires-python` range to include this version. For example, ">
 Use `-q/--quiet` to suppress these warnings, or ignore them per-package with `ignore_package_warnings` config in [tool.pdm] table.
 ```
 
-这是因为包的 Python 版本支持的范围不包括 `requires-python` `pyproject.toml` 。您可以通过添加以下配置来忽略每个包的这些警告：
+这是因为包的 Python 版本支持的范围不包括 `requires-python` `pyproject.toml`。
+您可以通过添加以下配置来忽略每个包的这些警告：
 
 ```toml
 [tool.pdm]

@@ -46,19 +46,21 @@ pdm python remove 3.9.8
 
 !!! TIP "与 Rye 共享安装"
 
-    PDM 使用与 [Rye](https://rye-up.com) 相同的源来安装 Python 解释器。如果您同时使用 Rye，则可以将 `python.install_root` 指向与 Rye 相同的目录以共享 Python 解释器：
+  PDM 使用与 [Rye](https://rye-up.com) 相同的源来安装 Python 解释器。如果您同时使用 Rye，则可以将 `python.install_root` 指向与 Rye 相同的目录以共享 Python 解释器：
 
-    ```bash
-    pdm config python.install_root ~/.rye/py
-    ```
+```bash
+pdm config python.install_root ~/.rye/py
+```
 
-    之后，您可以使用 `rye toolchain` 或 `pdm python`来管理安装。
+  之后，您可以使用 `rye toolchain` 或 `pdm python`来管理安装。
 
 ## 是否使用虚拟环境
 
-选择 Python 解释器后，PDM 将询问您是否要为项目创建虚拟环境。如果选择“是”，PDM 将在项目根目录中创建一个虚拟环境，并将其用作项目的 Python 解释器。
+选择 Python 解释器后，PDM 将询问您是否要为项目创建虚拟环境。
+如果选择 **是**，PDM 将在项目根目录中创建一个虚拟环境，并将其用作项目的 Python 解释器。
 
-如果所选的 Python 解释器位于虚拟环境中，PDM 会将其用作项目环境，并在其中安装依赖项。否则，  `__pypackages__` 将在项目根目录中创建，并将依赖项安装到其中。
+如果所选的 Python 解释器位于虚拟环境中，PDM 会将其用作项目环境，并在其中安装依赖项。
+否则，`__pypackages__` 将在项目根目录中创建，并将依赖项安装到其中。
 
 有关这两种方法的区别，请参阅文档中的相应部分：
 
@@ -81,7 +83,7 @@ pdm python remove 3.9.8
 
 解析依赖关系将导致 `Resolution Impossible` 错误:
 
-```
+```bash
 Unable to find a resolution because the following dependencies don't work
 on all Python versions defined by the project's `requires-python`
 ```
@@ -108,7 +110,8 @@ on all Python versions defined by the project's `requires-python`
 | `flit-core>=3.4`      | `>=3.6`          | Yes             |
 | `flit-core>=3.2,<3.4` | `>=3.4`          | Yes             |
 
-请注意，如果您的项目是应用程序（即没有 `name` 元数据），则上述后端限制不适用。因此，如果您不需要构建后端，则可以使用任何 Python 版本 `>=2.7`。
+请注意，如果您的项目是应用程序（即没有 `name` 元数据），则上述后端限制不适用。
+因此，如果您不需要构建后端，则可以使用任何 Python 版本 `>=2.7`。
 
 ## 从其他包管理器导入项目
 
@@ -131,9 +134,11 @@ PDM 提供了 `import` 命令，因此您不必手动初始化项目，它现在
 您 **必须** 提交 `pyproject.toml` 文件。您**应该**提交 `pdm.lock` 和 `pdm.toml` 文件。**不要** commit 提交 `.pdm-python` 文件。
 
 必须提交该 `pyproject.toml` 文件，因为它包含项目的构建元数据和 PDM 所需的依赖项。
-它也通常被其他 python 工具用于配置。在 [Pip 文档](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/) 中阅读有关该 `pyproject.toml` 文件的更多信息。
+它也通常被其他 python 工具用于配置。
+在 [Pip 文档](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/) 中阅读有关该 `pyproject.toml` 文件的更多信息。
 
-您应该提交文件 `pdm.lock` ，这样可以确保所有安装程序都使用相同版本的依赖项。若要了解如何更新依赖项，请参阅 [更新现有依赖项](./dependency.md#update-existing-dependencies)。
+您应该提交文件 `pdm.lock` ，这样可以确保所有安装程序都使用相同版本的依赖项。
+若要了解如何更新依赖项，请参阅 [更新现有依赖项](./dependency.md#update-existing-dependencies)。
 
 `pdm.toml` 包含一些项目范围的配置，提交它以供共享可能很有用。
 
@@ -169,9 +174,10 @@ $ pdm info --env
 }
 ```
 
-[pdm info](../reference/cli.md#info)这个命令可用于检查项目正在使用的模式：
+[pdm info](../reference/cli.md#info) 这个命令可用于检查项目正在使用的模式：
 
-- 如果 *Project Packages* 是 `None`, 则启用 [virtualenv mode](./venv.md) 模式。
+- 如果 **Project Packages** 是 `None`, 则启用 [virtualenv mode](./venv.md) 模式。
 - 否则，将启用 [PEP 582 mode](./pep582.md) 模式。
 
-现在，您已经设置了一个新的 PDM 项目并获取了一个 `pyproject.toml` 文件。请参阅[元数据](../reference/pep621.md)部分，了解如何正确编写 `pyproject.toml`。
+现在，您已经设置了一个新的 PDM 项目并获取了一个 `pyproject.toml` 文件。
+请参阅[元数据](../reference/pep621.md)部分，了解如何正确编写 `pyproject.toml`。

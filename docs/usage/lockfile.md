@@ -4,7 +4,7 @@ PDM 仅从名为 `pdm.lock` 的现有锁定文件安装软件包。此文件是�
 
 - 所有软件包及其版本
 - 包的文件名和哈希值
-- （可选）用于下载包的源 URL（另请参阅：[静态 URL](#static-urls)）i
+- （可选）用于下载包的源 URL（另请参阅：[静态 URL](#static-urls)）
 - 每个包的依赖项和标记（另请参阅：[从父级继承元数据](#inherit-the-metadata-from-parents)）
 
 若要创建或覆盖锁定文件，请运行 [`pdm lock`](../reference/cli.md#lock),它支持与 [`pdm add`](../reference/cli.md#add) 相同的 [更新策略](./dependency.md#about-update-strategy)。此外 [`pdm install`](../reference/cli.md#install) 和 [`pdm add`](../reference/cli.md#add) 命令还将自动创建 `pdm.lock` 文件。
@@ -69,14 +69,14 @@ dev = ["werkzeug @ file:///${PROJECT_ROOT}/dev/werkzeug"]
 
 然后，使用不同的选项运行 `pdm lock` 以生成用于不同目的的锁定文件：
 
-```bash
-# 锁定默认依赖项和开发依赖项，并将结果写入pdm.lock文件中，
-# 同时将werkzeug的本地副本固定。
-pdm lock
-# 锁定默认依赖项，并将结果写入pdm.prod.lock文件中
-# 同时将werkzeug的发布版本固定。
-pdm lock --prod -L pdm.prod.lock
-```
+    ```bash
+    # 锁定默认依赖项和开发依赖项，并将结果写入pdm.lock文件中，
+    # 同时将werkzeug的本地副本固定。
+    pdm lock
+    # 锁定默认依赖项，并将结果写入pdm.prod.lock文件中
+    # 同时将werkzeug的发布版本固定。
+    pdm lock --prod -L pdm.prod.lock
+    ```
 
 检查锁定文件中的 `metadata.groups` 字段以查看包含哪些组。
 
@@ -88,7 +88,8 @@ pdm lock --prod -L pdm.prod.lock
 pdm add --frozen-lockfile flask
 ```
 
-在这种情况下，锁定文件（如果存在）将变为只读，不会对其执行写入操作。但是，如果需要，仍将执行依赖项解析步骤。
+在这种情况下，锁定文件（如果存在）将变为只读，不会对其执行写入操作。
+但是，如果需要，仍将执行依赖项解析步骤。
 
 ## 锁定策略
 
@@ -109,25 +110,25 @@ pdm lock -S no_cross_platform
 
 此命令使锁定文件不跨平台。
 
-### Cross platform
-
-**全平台**
+### 全平台
 
 +++ 2.6.0
 
-默认情况下，生成的锁定文件是**跨平台**的，这意味着在解析依赖项时不考虑当前平台。结果锁定文件将包含所有可能的平台和 Python 版本的轮子和依赖项。但是，有时当版本不包含所有轮子时，这会导致错误的锁定文件。为避免这种情况，您可以告诉 PDM 创建一个仅适用于**此平台**的锁定文件，修剪与当前平台无关的车轮。这可以通过将 `--strategy no_cross_platform` 选项传递给以下 `pdm lock` 选项来完成：
+默认情况下，生成的锁定文件是**跨平台**的，这意味着在解析依赖项时不考虑当前平台。
+结果锁定文件将包含所有可能的平台和 Python 版本的轮子和依赖项。但是，有时当版本不包含所有轮子时，这会导致错误的锁定文件。
+为避免这种情况，您可以告诉 PDM 创建一个仅适用于**此平台**的锁定文件，修剪与当前平台无关的车轮。
+这可以通过将 `--strategy no_cross_platform` 选项传递给以下 `pdm lock` 选项来完成：
 
 ```bash
 pdm lock --strategy no_cross_platform
 ```
 
-### Static URLs
-
-**静态 URL**
+### <span id='static-urls'>静态 URL</span>
 
 +++ 2.8.0
 
-默认情况下，PDM 仅将包的文件名存储在锁文件中，这有利于跨不同包索引的可重用性。但是，如果要将包的静态 URL 存储在锁定文件中，则可以将 `--strategy static_urls` 选项传递给 `pdm lock`：
+默认情况下，PDM 仅将包的文件名存储在锁文件中，这有利于跨不同包索引的可重用性。
+但是，如果要将包的静态 URL 存储在锁定文件中，则可以将 `--strategy static_urls` 选项传递给 `pdm lock`：
 
 ```bash
 pdm lock --strategy static_urls
@@ -135,9 +136,7 @@ pdm lock --strategy static_urls
 
 将保存并记住同一锁定文件的设置。您也可以通过 `--strategy no_static_urls` 禁用它。
 
-### Direct minimal versions
-
-**直接最小版本**
+### 直接最小版本
 
 +++ 2.10.0
 
@@ -149,9 +148,7 @@ pdm lock --strategy static_urls
     包依赖项中的版本约束不是面向未来的。如果将依赖项解析为最低版本，则可能会出现向后兼容性问题。
     例如， `flask==2.0.0` 需要 `werkzeug>=2.0`，但实际上它不能与 `Werkzeug 3.0.0`一起使用 ，后者在它发布 2 年后发布。
 
-### Inherit the metadata from parents
-
-**从父级继承元数据**
+### <span id="inherit-the-metadata-from-parents">从父级继承元数据</span>
 
 +++ 2.11.0
 
@@ -159,9 +156,7 @@ pdm lock --strategy static_urls
 
 启用该 `inherit_metadata` 策略后，PDM 将从包的祖先继承并合并环境标记。然后，在锁定期间将这些标记编码到锁定文件中，从而加快安装速度。这已从版本 2.11.0 默认启用，要在配置中禁用此策略，请使用 `pdm config strategy.inherit_metadata false`。
 
-### Exclude packages newer than specific date
-
-**排除比特定日期更加新的软件包**
+### 排除比特定日期更加新的软件包
 
 +++ 2.13.0
 
@@ -184,7 +179,7 @@ pdm lock --exclude-newer 2024-01-01
 
 每个 env var 都是一个以逗号分隔的包名列表。您可以将其 `:all:` 设置为应用于所有包。例如：
 
-```
+```toml
 # 不会锁定werkzeug的二进制文件，也不会用于安装
 PDM_NO_BINARY=werkzeug pdm add flask
 # 只有二进制文件将被锁定在锁定文件中
@@ -231,8 +226,8 @@ pdm django==3.1.4 "asgiref<3"
 ...
 🔒 Lock failed
 Unable to find a resolution for asgiref because of the following conflicts:
-  asgiref<3 (from project)
-  asgiref<4,>=3.2.10 (from <Candidate django 3.1.4 from https://pypi.org/simple/django/>)
+    asgiref<3 (from project)
+    asgiref<4,>=3.2.10 (from <Candidate django 3.1.4 from https://pypi.org/simple/django/>)
 To fix this, you could loosen the dependency version constraints in pyproject.toml. If that is not possible, you could also override the resolved version in `[tool.pdm.resolution.overrides]` table.
 ```
 
