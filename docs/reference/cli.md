@@ -9,7 +9,11 @@ from pdm.core import Core
 
 
 localedir = Path("locale")
-t = gettext.translation('cli', localedir=localedir, languages=['zh-CN'])
+# 如果文档找不到翻译文件，则使用空翻译对象
+try:
+    t = gettext.translation('cli', localedir=localedir, languages=['zh-CN'])
+except FileNotFoundError:
+    t = gettext.NullTranslations()
 
 
 parser = Core().parser  # 获取核心代码参数解析对象
