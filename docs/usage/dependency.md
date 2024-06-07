@@ -101,6 +101,14 @@ pdm add "git+https://github.com/pypa/pip.git@22.0#egg=pip"
 pdm add "git+https://github.com/owner/repo.git@master#egg=pkg&subdirectory=subpackage"
 ```
 
+要对 git 使用 ssh 方案，只需将 "https://" 替换为 "ssh://git@"
+
+列如：
+
+```bash
+pdm add "wheel @ git+ssh://git@github.com/pypa/wheel.git@main"
+```
+
 ### 在 URL 中隐藏凭据
 
 您可以使用 `${ENV_VAR}` 变量语法在 URL 中隐藏凭据：
