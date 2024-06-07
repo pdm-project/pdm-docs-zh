@@ -10,6 +10,68 @@ pdm run flask run -p 54321
 
 它将在知晓项目环境中的包的环境中运行 `flask run -p 54321`。
 
+## 单文件脚本
+
++++ 2.16.0
+
+PDM 能够运行带有 [内联脚本元数据](https://peps.python.org/pep-0723/) 的单文件脚本。
+
+以下是一个带有嵌入式元数据的脚本示例：
+
+```python
+# test_script.py
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "requests<3",
+#   "rich",
+# ]
+# ///
+
+import requests
+from rich.pretty import pprint
+
+resp = requests.get("https://peps.python.org/api/peps.json")
+data = resp.json()
+pprint([(k, v["title"]) for k, v in data.items()][:10])
+```
+
+当你使用 `pdm run test_script.py`， 运行它时，PDM 会创建一个临时环境，并安装指定的依赖项，然后运行脚本：
+
+```python
+[
+│   ('1', 'PEP Purpose and Guidelines'),
+│   ('2', 'Procedure for Adding New Modules'),
+│   ('3', 'Guidelines for Handling Bug Reports'),
+│   ('4', 'Deprecation of Standard Modules'),
+│   ('5', 'Guidelines for Language Evolution'),
+│   ('6', 'Bug Fix Releases'),
+│   ('7', 'Style Guide for C Code'),
+│   ('8', 'Style Guide for Python Code'),
+│   ('9', 'Sample Plaintext PEP Template'),
+│   ('10', 'Voting Guidelines')
+]
+```
+如果你想复用上次创建的环境，可以添加 `--reuse-env` 选项。
+你还可以在脚本元数据中添加 `[tool.pdm]` 部分来配置 PDM。例如：
+
+```python
+# test_script.py
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "requests<3",
+#   "rich",
+# ]
+#
+# [[tool.pdm.source]]  # 使用自定义索引
+# url = "https://mypypi.org/simple"
+# name = "pypi"
+# ///
+```
+
+可以阅读这个 [规范](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#inline-script-metadata) 以获取更多详细信息。
+
 ## 用户脚本
 
 PDM 还支持在可选的 `[tool.pdm.scripts]` 部分中定义自定义脚本快捷方式。
