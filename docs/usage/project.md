@@ -17,7 +17,10 @@ pdm init
 
 或者，您可以通过 `PDM_PYTHON`环境变量指定 Python 解释器路径。设置后，保存的 `.pdm-python` 路径将被忽略。
 
-## 使用 PDM 安装 Python 解释器
+!!! warning "使用现有环境"
+    如果您选择使用现有环境，例如重复使用由 `conda` 创建的环境，请注意，在运行 `pdm sync --clean` 或 `pdm remove` 时，PDM 将 删除 未在 `pyproject.toml` 或 `pdm.lock` 中列出的依赖项。这可能会导致破坏性后果。因此，尽量不要在多个项目之间共享环境。
+
+### 使用 PDM 安装 Python 解释器
 
 +++ 2.13.0
 
@@ -54,7 +57,7 @@ pdm config python.install_root ~/.rye/py
 
   之后，您可以使用 `rye toolchain` 或 `pdm python`来管理安装。
 
-## 是否使用虚拟环境
+### 是否使用虚拟环境
 
 选择 Python 解释器后，PDM 将询问您是否要为项目创建虚拟环境。
 如果选择 **是**，PDM 将在项目根目录中创建一个虚拟环境，并将其用作项目的 Python 解释器。
@@ -73,7 +76,9 @@ pdm config python.install_root ~/.rye/py
 
 在PDM中，如果选择创建一个库，PDM 会向 `pyproject.toml` 文件添加 `name`、`version` 字段，以及一个 [build backend](../reference/build.md) 表格用于构建后端，这只有在您的项目需要构建和分发时才有用。因此，如果您想将项目从应用程序更改为库，您需要手动添加这些字段到 `pyproject.toml` 中。此外，当您运行 `pdm install` 或 `pdm sync` 时，库项目将被安装到环境中，除非指定了`--no-self`。
 
-## 设定 `requires-python` 值
+在 `pyproject.toml` 中，在 `[tool.pdm]` 表下有一个字段 `distribution`。如果将其设置为 `true` ，PDM 将把该项目视为一个库。
+
+## 指定 `requires-python`
 
 您需要为项目设置适当的 `requires-python` 值。这是一个重要属性，会影响依赖关系的解析方式。基本上，每个包 `requires-python` 都必须**涵盖**项目的 `requires-python`  范围。
 例如，请考虑以下设置：
