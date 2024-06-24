@@ -230,15 +230,15 @@ pdm config install.cache on
 
 缓存位于 `$(pdm config cache_dir)/packages` 中。您可以使用 `pdm cache info` 查看缓存使用情况。请注意，缓存的安装是自动管理的，如果它们未链接到任何项目，它们将被删除。从磁盘手动删除缓存可能会破坏系统上的某些项目。
 
-此外，还支持链接到缓存条目的几种不同方式：
+此外，支持几种不同的链接方法：
 
 - `symlink`（默认），创建指向包文件的符号链接。
 - `hardlink`, 创建指向缓存条目的包文件的硬链接。
 
-您可以通过运行 `pdm config [-l] install.cache_method <method>` 在它们之间切换。
+您可以通过运行 `pdm config [--local] install.cache_method <method>` 在它们之间切换。
 
 !!! note
-    只能缓存从 PyPI 解析的命名需求的安装。
+    只有从其中一个包源安装的包才能被缓存。
 
 ## 配置要上传的存储库
 
