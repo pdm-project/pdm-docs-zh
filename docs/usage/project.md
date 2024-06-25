@@ -57,6 +57,25 @@ pdm config python.install_root ~/.rye/py
 
   之后，您可以使用 `rye toolchain` 或 `pdm python`来管理安装。
 
+### 基于 'requires-python' 的安装策略
+
++++ 2.16.0
+
+如果未给出 Python `version`，PDM 将尝试安装当前平台/架构组合的最佳匹配项
+基于 `pyproject.toml` 中的 `requires-python` （如果 pyproject.toml 或 requires-python 属性不可用，
+考虑所有可安装的 Python 解释器）。
+
+默认策略为“最大”，即将安装最高的 cPython 解释器版本。
+
+如果首选 `minimum`，请使用选项 `--min` 并将 `version` 留空。
+
+```bash
+pdm python install --min
+```
+
+同样的原则也适用于[`pdm use`]（../reference/cli.md#use） （包括自动安装功能）
+这使它成为 CI/CD 或“使用现有 pyproject.toml 重新开始”用例的良好无人值守设置命令。
+
 ### 是否使用虚拟环境
 
 选择 Python 解释器后，PDM 将询问您是否要为项目创建虚拟环境。
