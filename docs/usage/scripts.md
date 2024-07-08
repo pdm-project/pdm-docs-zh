@@ -195,6 +195,16 @@ all.composite = ["lint mypackage/", "test -v tests/"]
 !!! note
     在命令行上传递的参数将传递给每个被调用的任务。
 
+您还可以使用 `composite` 脚本来组合多个命令:
+
+```toml
+[tool.pdm.scripts]
+mytask.composite = [
+    "echo 'Hello'",
+    "echo 'World'"
+]
+```
+
 ## 脚本选项
 
 ### `env`
