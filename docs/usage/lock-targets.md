@@ -23,7 +23,7 @@ dependencies = [
 
 生成锁定文件时指定锁定目标
 
-- `--python=<PYTHON_RANGE>`: [PEP 440](https://www.python.org/dev/peps/pep-0440/)兼容的Python版本说明符。例如，`--python=">=3.8，<3.10"` 将为Python版本 `>=3.8` 和 `<3.10` 生成锁定文件。
+- `--python=<PYTHON_RANGE>`: 一个符合 [PEP 440](https://www.python.org/dev/peps/pep-0440/) 的 Python 版本指定器。例如，`--python=">=3.8,<3.10"` 将为 Python 版本 `>=3.8` 且 `<3.10` 生成一个锁定文件。为了方便起见，`--python=3.10` 等同于 `--python=">=3.10"`，意味着为 Python 3.10 及以上版本进行解析。
 - `--platform=<PLATFORM>`: 平台说明符。例如，`pdm lock--Platform=linux` 将为 x86_64 平台生成 Linux 锁文件。可用选项有：
     * `linux`
     * `windows`
