@@ -45,7 +45,9 @@ nav:
       - 简介: index.md
       - usage/project.md
       - usage/dependency.md
-      - usage/lockfile.md
+      - 锁定文件:
+        - usage/lockfile.md
+        - usage/lock-targets.md
       - usage/publish.md
       - usage/config.md
       - usage/scripts.md
