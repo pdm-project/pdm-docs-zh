@@ -313,29 +313,6 @@ name = "NameOfFeed"
 url = "https://pkgs.dev.azure.com/[org name]/_packaging/[feed name]/pypi/simple/"
 ```
 
-## 使用覆盖功能解决包的依赖问题
-
-+++ 1.12.0
-
-有时，由于上游库设置的版本范围不正确，无法修复依赖项解析。
-在这种情况下，您可以使用 PDM 的覆盖功能来强制安装特定版本的软件包。
-
-给定以下 `pyproject.toml` 配置：
-
-```toml
-[tool.pdm.resolution.overrides]
-asgiref = "3.2.10"  # 准确的版本
-urllib3 = ">=1.26.2"  # 版本范围
-pytz = "https://mypypi.org/packages/pytz-2020.9-py3-none-any.whl"  # absolute URL
-```
-
-该表中的每个条目都是一个包名及其所需的版本。
-在这个例子中，PDM将解析上述包，无论是否存在其他可用的解决方案，都会将其解析为给定的版本。
-
-!!! warning
-    通过使用 `[tool.pdm.resolution.overrides]` 设置，您自行承担由该解决方案引起的任何不兼容性的风险。
-    只有当您的要求没有有效的解决方案并且您知道特定版本有效时，才可以使用它。大多数情况下，您可以将任何短暂的约束添加到依赖关系数组中。
-
 ## 从锁定文件中排除特定包及其依赖项
 
 +++ 2.12.0

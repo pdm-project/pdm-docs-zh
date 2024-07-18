@@ -312,16 +312,38 @@ dev2 = ["mkdocs"]
 
 您也可以在这些选项中使用 `pdm lock` 命令，这样只会锁定指定的组，这些组将记录在锁文件的 `[metadata]` 表中。如果未指定 `--group/--prod/--dev/--no-default` 选项，则 `pdm sync` 和 `pdm update` 将使用锁文件中的组。但是，如果在命令中提供了任何未包含在锁文件中的组，PDM 将引发错误。
 
-## 约束文件
+## 依赖项覆盖
+
+如果某个特定包的所有版本都不满足所有约束条件，解析将会失败。在这种情况下，您可以通过依赖项覆盖告诉解析器使用该包的特定版本。
+
+在某些情况下，如果用户知道某个依赖项与某个包的更新版本兼容，但该包尚未更新以声明这种兼容性，那么覆盖将是一种有用的最终手段。
+
+例如，如果一个传递依赖声明 `pydantic>=1.0,<2.0` ，但用户知道该包与 `pydantic>=2.0` 兼容，用户可以用 `pydantic>=2.0,<3` 覆盖声明的依赖，以使解析器能够继续。
+
+在 PDM 中，有两种指定覆盖的方式：
+
+### 在项目文件中
+
++++ 1.12.0
+
+您可以在 `pyproject.toml` 文件中，在 `[tool.pdm.resolution.overrides]` 表下指定覆盖项：
+
+```toml
+[tool.pdm.resolution.overrides]
+asgiref = "3.2.10"  # 确切版本
+urllib3 = ">=1.26.2"  # 版本范围
+pytz = "https://mypypi.org/packages/pytz-2020.9-py3-none-any.whl"  # 绝对 URL
+```
+
+该表中的每个条目都是一个包名称和一个版本说明符。版本说明符可以是一个版本范围、一个确切的版本或一个绝对 URL 。
+
+### 通过命令行选项
 
 +++ 2.17.0
 
-PDM 还支持 [约束文件](https://pip.pypa.io/en/stable/user_guide/#constraints-files) 来限制要解析或安装的软件包的版本。
-
-约束文件是类似于 pip 风格的需求文件，它仅控制安装的需求的版本，而不控制是否安装。其语法与 pip 的 `requirements.txt` 文件相同：
+PDM 还支持从需求文件中读取依赖项覆盖。该文件的工作方式类似于 pip 中的约束文件（`--constraint constraints.txt`），并且语法与需求文件相同：
 
 ```
-# 这是一个 pip 约束文件
 requests==2.20.0
 django==1.11.8
 certifi==2018.11.17
@@ -331,15 +353,17 @@ pytz==2019.3
 urllib3==1.23
 ```
 
-并且您可以将约束文件传递给各种会执行解析的 PDM 命令，例如 [`pdm install`](../reference/cli.md#install)、 [`pdm lock`](../reference/cli.md#lock)、 [`pdm add`](../reference/cli.md#add) 等。
+覆盖文件是一种简便的方式，用于将依赖项存储在一个集中的位置，您所在组织中的多个项目都可以共享。
+
+您可以将约束文件传递给各种会执行解析的 PDM 命令，例如 [`pdm install`](../reference/cli.md#install)、[`pdm lock`](../reference/cli.md#lock)、[`pdm add`](../reference/cli.md#add) 等等。
 
 ```bash
-pdm lock -c constraints.txt
+pdm lock --override constraints.txt
 ```
 
-请注意，如果锁文件已经存在并且是最新的， `pdm install` 不会执行解析，因此不会使用约束文件。
+此选项可以多次提供。
 
-约束文件也可以通过 URL 提供，例如 http://example.com/constraints.txt ，以便您的组织可以在一个集中的位置存储和提供它们。
+覆盖文件也可以通过 URL 提供，例如 `--override http://example.com/constraints.txt` ，以便您的组织能够在远程服务器中存储和提供它们。
 
 ## 显示已安装的软件包
 
