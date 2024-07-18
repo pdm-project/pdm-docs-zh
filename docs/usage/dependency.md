@@ -312,6 +312,35 @@ dev2 = ["mkdocs"]
 
 您也可以在这些选项中使用 `pdm lock` 命令，这样只会锁定指定的组，这些组将记录在锁文件的 `[metadata]` 表中。如果未指定 `--group/--prod/--dev/--no-default` 选项，则 `pdm sync` 和 `pdm update` 将使用锁文件中的组。但是，如果在命令中提供了任何未包含在锁文件中的组，PDM 将引发错误。
 
+## 约束文件
+
++++ 2.17.0
+
+PDM 还支持 [约束文件](https://pip.pypa.io/en/stable/user_guide/#constraints-files) 来限制要解析或安装的软件包的版本。
+
+约束文件是类似于 pip 风格的需求文件，它仅控制安装的需求的版本，而不控制是否安装。其语法与 pip 的 `requirements.txt` 文件相同：
+
+```
+# 这是一个 pip 约束文件
+requests==2.20.0
+django==1.11.8
+certifi==2018.11.17
+chardet==3.0.4
+idna==2.7
+pytz==2019.3
+urllib3==1.23
+```
+
+并且您可以将约束文件传递给各种会执行解析的 PDM 命令，例如 [`pdm install`](../reference/cli.md#install)、 [`pdm lock`](../reference/cli.md#lock)、 [`pdm add`](../reference/cli.md#add) 等。
+
+```bash
+pdm lock -c constraints.txt
+```
+
+请注意，如果锁文件已经存在并且是最新的， `pdm install` 不会执行解析，因此不会使用约束文件。
+
+约束文件也可以通过 URL 提供，例如 http://example.com/constraints.txt ，以便您的组织可以在一个集中的位置存储和提供它们。
+
 ## 显示已安装的软件包
 
 类似于 `pip list`，您可以列出安装在软件包目录中的所有软件包：
