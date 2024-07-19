@@ -34,6 +34,9 @@ plugins:
   - markdown-exec
   - "mkdocs-version-annotations":
       version_added_admonition: "tip"
+      version_added_title: "在版本 \\1 中添加"
+      version_changed_title: "在版本 \\1 中更改"
+      version_removed_title: "在版本 \\1 中移除"
   - mkdocstrings:
       handlers:
         python:
