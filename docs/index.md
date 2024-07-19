@@ -100,6 +100,12 @@ usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d 
     scoop install pdm
     ```
 
+=== "uv"
+
+    ```bash
+    uv tool install pdm
+    ```
+
 === "pipx"
 
     ```bash
