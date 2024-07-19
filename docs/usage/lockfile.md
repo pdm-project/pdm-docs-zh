@@ -71,14 +71,14 @@ dev = ["werkzeug @ file:///${PROJECT_ROOT}/dev/werkzeug"]
 
 然后，使用不同的选项运行 `pdm lock` 以生成用于不同目的的锁定文件：
 
-    ```bash
-    # 锁定默认依赖项和开发依赖项，并将结果写入pdm.lock文件中，
-    # 同时将werkzeug的本地副本固定。
-    pdm lock
-    # 锁定默认依赖项，并将结果写入pdm.prod.lock文件中
-    # 同时将werkzeug的发布版本固定。
-    pdm lock --prod -L pdm.prod.lock
-    ```
+```bash
+# 锁定默认依赖项和开发依赖项，并将结果写入pdm.lock文件中，
+# 同时将werkzeug的本地副本固定。
+pdm lock
+# 锁定默认依赖项，并将结果写入pdm.prod.lock文件中
+# 同时将werkzeug的发布版本固定。
+pdm lock --prod -L pdm.prod.lock
+```
 
 检查锁定文件中的 `metadata.groups` 字段以查看包含哪些组。
 
