@@ -28,11 +28,11 @@
 
 ```bash
 # 基于 3.8 解释器创建虚拟环境
-$ pdm venv create 3.8
+pdm venv create 3.8
 # 分配一个与版本字符串不同的名称
-$ pdm venv create --name for-test 3.8
+pdm venv create --name for-test 3.8
 # 使用 venv 作为后端创建，支持 3 个后端：virtualenv（默认）、venv、conda
-$ pdm venv create --with venv 3.9
+pdm venv create --with venv 3.9
 ```
 
 ## 虚拟环境的位置
@@ -70,8 +70,8 @@ Virtualenvs created with this project:
 ## 显示虚拟环境的路径或Python解释器
 
 ```bash
-$ pdm venv --path for-test
-$ pdm venv --python for-test
+pdm venv --path for-test
+pdm venv --python for-test
 ```
 
 ## 删除虚拟环境
@@ -135,7 +135,6 @@ Removed C:\Users\Frost Ming\AppData\Local\pdm\pdm\venvs\test-project-8Sgn_62n-fo
 
     对于 `fish` shell，你可以将以下内容放入你的 `~/fish/config.fish` 或 `~/.config/fish/config.fish`：
 
-
       ```fish
         function pdm
             set cmd $argv[1]
@@ -178,11 +177,11 @@ $ eval $(pdm venv activate test-prompt)
 
 ```bash
 # 运行脚本
-$ pdm run --venv test test
+pdm run --venv test test
 # 安装包
-$ pdm sync --venv test
+pdm sync --venv test
 # 列出已安装的包
-$ pdm list --venv test
+pdm list --venv test
 ```
 
 还有其他支持 `--venv` 标志或 `PDM_IN_VENV` 环境变量的命令，请参阅 [CLI reference](../reference/cli.md)。在使用此功能之前，你应该使用 `pdm venv create --name <name>` 创建虚拟环境。
@@ -193,9 +192,9 @@ $ pdm list --venv test
 
 ```bash
 # 切换到名为 test 的虚拟环境
-$ pdm use --venv test
+pdm use --venv test
 # 切换到项目根目录下的 .venv 位置的虚拟环境
-$ pdm use --venv in-project
+pdm use --venv in-project
 ```
 
 ## 禁用虚拟环境模式
@@ -221,7 +220,7 @@ $ pdm run python -m pip install coverage
 或者你可以使用 `--with-pip` 在创建虚拟环境时包含 `pip`：
 
 ```bash
-$ pdm venv create --with-pip 3.9
+$pdm venv create --with-pip 3.9
 ```
 
 有关 ensurepip 的更多详细信息，请参阅 [ensurepip 文档](https://docs.python.org/3/library/ensurepip.html)。

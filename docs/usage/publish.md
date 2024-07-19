@@ -8,6 +8,8 @@ pdm publish
 
 这将自动构建一个轮子和一个源分发（sdist），并将它们上传到 PyPI 索引。
 
+PyPI 需要 API 令牌才能发布包，可以使用 `__token__` 作为用户名，使用 API 令牌作为密码。
+
 要指定 PyPI 以外的其他存储库，请使用选项 `--repository` ，参数可以是上传 URL，也可以是存储在配置文件中的存储库的名称。
 
 ```bash
@@ -17,7 +19,8 @@ pdm publish --repository https://test.pypi.org/legacy/
 
 ## 使用受信任的发布者发布
 
-可以为 PyPI 配置受信任的发布者，这样就不需要在发布工作流中公开 PyPI 令牌。为此，请按照[指南](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)添加发布者并编写 GitHub Actions 工作流，如下所示：
+可以为 PyPI 配置受信任的发布者，这样就不需要在发布工作流中公开 PyPI 令牌。
+为此，请按照[指南](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)添加发布者并编写 GitHub Actions 工作流，如下所示：
 
 ```yaml
 jobs:

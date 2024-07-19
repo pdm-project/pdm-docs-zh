@@ -34,7 +34,6 @@ pdm config theme.success '#51c7bd'
 !!! note "Environment Variable Overrides"
     如果设置了相应的 env var，则该值将优先于配置文件中保存的值。
 
-
 ```python exec="on"
 from pdm.project.config import Config
 
@@ -55,4 +54,3 @@ print("""\
 | `repository.<name>.verify_ssl`    | Verify SSL certificate when uploading to repository                                  | `True`                                                                | Yes                  |                           |
 """)
 ```
-

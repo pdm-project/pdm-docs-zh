@@ -10,6 +10,68 @@ pdm run flask run -p 54321
 
 它将在知晓项目环境中的包的环境中运行 `flask run -p 54321`。
 
+## 单文件脚本
+
++++ 2.16.0
+
+PDM 能够运行带有 [内联脚本元数据](https://peps.python.org/pep-0723/) 的单文件脚本。
+
+以下是一个带有嵌入式元数据的脚本示例：
+
+```python
+# test_script.py
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "requests<3",
+#   "rich",
+# ]
+# ///
+
+import requests
+from rich.pretty import pprint
+
+resp = requests.get("https://peps.python.org/api/peps.json")
+data = resp.json()
+pprint([(k, v["title"]) for k, v in data.items()][:10])
+```
+
+当你使用 `pdm run test_script.py`， 运行它时，PDM 会创建一个临时环境，并安装指定的依赖项，然后运行脚本：
+
+```python
+[
+│   ('1', 'PEP Purpose and Guidelines'),
+│   ('2', 'Procedure for Adding New Modules'),
+│   ('3', 'Guidelines for Handling Bug Reports'),
+│   ('4', 'Deprecation of Standard Modules'),
+│   ('5', 'Guidelines for Language Evolution'),
+│   ('6', 'Bug Fix Releases'),
+│   ('7', 'Style Guide for C Code'),
+│   ('8', 'Style Guide for Python Code'),
+│   ('9', 'Sample Plaintext PEP Template'),
+│   ('10', 'Voting Guidelines')
+]
+```
+如果你想复用上次创建的环境，可以添加 `--reuse-env` 选项。
+你还可以在脚本元数据中添加 `[tool.pdm]` 部分来配置 PDM。例如：
+
+```python
+# test_script.py
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "requests<3",
+#   "rich",
+# ]
+#
+# [[tool.pdm.source]]  # 使用自定义索引
+# url = "https://mypypi.org/simple"
+# name = "pypi"
+# ///
+```
+
+可以阅读这个 [规范](https://packaging.python.org/en/latest/specifications/inline-script-metadata/#inline-script-metadata) 以获取更多详细信息。
+
 ## 用户脚本
 
 PDM 还支持在可选的 `[tool.pdm.scripts]` 部分中定义自定义脚本快捷方式。
@@ -39,7 +101,9 @@ Flask server started at http://0.0.0.0:54321
 ```
 
 !!! note "像 Yarn 一样的脚本快捷方式"
-    内置的快捷方式使所有脚本都可用作根命令，只要脚本不与任何内置或插件贡献的命令冲突。换句话说，如果你有一个 `start` 脚本，你可以同时运行 `pdm run start` 和 `pdm start`。但是如果你有一个 `install` 脚本，只有 `pdm run install` 会运行它，`pdm install` 仍然会运行内置的 `install` 命令。
+    内置的快捷方式使所有脚本都可用作根命令，只要脚本不与任何内置或插件贡献的命令冲突。
+    换句话说，如果你有一个 `start` 脚本，你可以同时运行 `pdm run start` 和 `pdm start`。
+    但是如果你有一个 `install` 脚本，只有 `pdm run install` 会运行它，`pdm install` 仍然会运行内置的 `install` 命令。
 
 PDM 支持 4 种类型的脚本：
 
@@ -52,21 +116,23 @@ PDM 支持 4 种类型的脚本：
 start = {cmd = "flask run -p 54321"}
 ```
 
-在某些情况下，例如想在参数之间添加注释时，将命令指定为数组可能更方便：
+在某些情况下，例如想要在参数之间添加注释时，它可能更方便。
+要将命令指定为数组而不是字符串，请执行以下操作：
 
 ```toml
 [tool.pdm.scripts]
 start = {cmd = [
-	"flask",
-	"run",
-	# 在这里添加关于始终使用端口 54321 的重要注释
-	"-p", "54321"
+    "flask",
+    "run",
+    # 在这里添加关于始终使用端口 54321 的重要注释
+    "-p", "54321"
 ]}
 ```
 
 ### `shell`
 
-Shell 脚本可用于运行更多与 Shell 相关的任务，例如管道和输出重定向。这基本上是通过 `subprocess.Popen()` 和 `shell=True` 运行的：
+Shell 脚本可用于运行更多与 Shell 相关的任务，例如管道和输出重定向。
+这基本上是通过 `subprocess.Popen()` 和 `shell=True` 运行的：
 
 ```toml
 [tool.pdm.scripts]
@@ -104,7 +170,8 @@ all = {composite = ["lint", "test"]}
 
 +++ 2.13.0
 
-要覆盖默认行为并在失败后继续执行剩余的脚本，将 `keep_going` 选项设置为 `true`：
+要覆盖默认行为并在失败后继续执行剩余的脚本，
+将 `keep_going` 选项设置为 `true`：
 
 ```toml
 [tool.pdm.scripts]
@@ -122,28 +189,41 @@ all.keep_going = true
 [tool.pdm.scripts]
 lint = "flake8"
 test = "pytest"
-all = {composite = ["lint mypackage/", "test -v tests/"]}
+all.composite = ["lint mypackage/", "test -v tests/"]
 ```
 
 !!! note
     在命令行上传递的参数将传递给每个被调用的任务。
 
+您还可以使用 `composite` 脚本来组合多个命令:
+
+```toml
+[tool.pdm.scripts]
+mytask.composite = [
+    "echo 'Hello'",
+    "echo 'World'"
+]
+```
+
 ## 脚本选项
 
 ### `env`
 
-当前 Shell 中设置的所有环境变量都可以被 `pdm run` 看到，并在执行时展开。此外，你还可以在你的 `pyproject.toml` 中定义一些固定的环境变量：
+当前 Shell 中设置的所有环境变量都可以被 `pdm run` 看到，并在执行时展开。
+此外，你还可以在你的 `pyproject.toml` 中定义一些固定的环境变量：
 
 ```toml
 [tool.pdm.scripts]
 start.cmd = "flask run -p 54321"
-start.env = {FOO = "bar", FLASK_ENV = "development"}
+start.env = {FOO = "bar", FLASK_ENV = "1"}
 ```
 
 注意我们如何使用 [TOML 的语法](https://github.com/toml-lang/toml) 定义一个复合字典。
 
 !!! note "关于环境变量替换"
-    脚本规范中的变量可以在所有脚本类型中进行替换。在 cmd 脚本中，所有平台上只支持 `${VAR}` 语法，但在 `shell` 脚本中，语法是依赖于平台的。例如，Windows cmd 使用 `%VAR%`，而 bash 使用 `$VAR`。
+    脚本规范中的变量可以在所有脚本类型中进行替换。
+    在 cmd 脚本中，所有平台上只支持 `${VAR}` 语法，但在 `shell` 脚本中，语法是依赖于平台的。
+    例如，Windows cmd 使用 `%VAR%`，而 bash 使用 `$VAR`。
 
 !!! note
     在复合任务级别指定的环境变量将覆盖调用任务定义的环境变量。
@@ -158,7 +238,8 @@ start.cmd = "flask run -p 54321"
 start.env_file = ".env"
 ```
 
-dotenv 文件中的变量不会覆盖任何现有的环境变量。如果你希望 dotenv 文件覆盖现有的环境变量，请使用以下命令：
+dotenv 文件中的变量不会覆盖任何现有的环境变量。
+如果你希望 dotenv 文件覆盖现有的环境变量，请使用以下命令：
 
 ```toml
 [tool.pdm.scripts]
@@ -185,7 +266,8 @@ start.working_dir = "subdir"
 
 ### `site_packages`
 
-为了确保运行环境与外部 Python 解释器正确隔离，除非以下任一条件成立，否则不会将所选解释器的 `site-packages` 加载到 `sys.path` 中：
+为了确保运行环境与外部 Python 解释器正确隔离，
+除非以下任一条件成立，否则不会将所选解释器的 `site-packages` 加载到 `sys.path` 中：
 
 1. 可执行文件来自 `PATH`，但不在 `__pypackages__` 文件夹内。
 2. `-s/--site-packages` 标志跟随 `pdm run`.
@@ -195,7 +277,8 @@ start.working_dir = "subdir"
 
 ### 共享选项
 
-如果你希望 `pdm run` 运行的所有任务共享选项，你可以将它们写在 `[tool.pdm.scripts]` 表中的特殊键 `_` 下：
+如果你希望 `pdm run` 运行的所有任务共享选项，
+你可以将它们写在 `[tool.pdm.scripts]` 表中的特殊键 `_` 下：
 
 ```toml
 [tool.pdm.scripts]
@@ -210,7 +293,8 @@ migrate_db = "flask db upgrade"
 
 默认情况下，所有用户提供的额外参数都简单地附加到命令（或对于 `composite` 任务的所有命令）。
 
-如果你想更多地控制用户提供的额外参数，你可以使用 `{args}` 占位符。它适用于所有脚本类型，并且将为每个脚本适当地插入：
+如果你想更多地控制用户提供的额外参数，你可以使用 `{args}` 占位符。
+它适用于所有脚本类型，并且将为每个脚本适当地插入：
 
 ```toml
 [tool.pdm.scripts]
@@ -255,14 +339,22 @@ $ pdm run test
 ```
 
 !!! note
-    一旦检测到占位符，就不再附加参数了。这对于 `composite` 脚本很重要，因为如果在子任务中检测到占位符，那么所有子任务都不会附加参数，你需要显式地将占位符传递给每个需要的嵌套命令。
+    一旦检测到占位符，就不再附加参数了。
+    这对于 `composite` 脚本很重要，
+    因为如果在子任务中检测到占位符，
+    那么所有子任务都不会附加参数，
+    你需要显式地将占位符传递给每个需要的嵌套命令。
 
 !!! note
-    `call` 脚本不支持 `{args}` 占位符，因为它们可以直接访问 `sys.argv` 来处理这种复杂情况和更多情况。
+    `call` 脚本不支持 `{args}` 占位符，
+    因为它们可以直接访问 `sys.argv` 来处理这种复杂情况和更多情况。
 
 ### `{pdm}` 占位符
 
-有时你可能有多个 PDM 安装，或者 `pdm` 安装了不同的名称。这可能发生在 CI/CD 情况下，或者在不同的存储库中使用不同的 PDM 版本时。为了使你的脚本更加健壮，你可以使用 `{pdm}` 来使用执行脚本的 PDM 入口点。这将扩展为 `{sys.executable} -m pdm`。
+有时你可能有多个 PDM 安装，或者 `pdm` 安装了不同的名称。
+这可能发生在 CI/CD 情况下，或者在不同的存储库中使用不同的 PDM 版本时。
+为了使你的脚本更加健壮，你可以使用 `{pdm}` 来使用执行脚本的 PDM 入口点。
+这将扩展为 `{sys.executable} -m pdm`。
 
 ```toml
 [tool.pdm.scripts]
@@ -308,11 +400,9 @@ $ pdm run --list
 
 ```toml
 [tool.pdm.scripts]
-# 在 `compress` 脚本之前运行
-pre_compress = "{{ Run BEFORE the `compress` script }}"
+pre_compress = "{{ Run BEFORE the `compress` script }}" # 在 `compress` 脚本之前运行
 compress = "tar czvf compressed.tar.gz data/"
-# 在 `compress` 脚本之后运行
-post_compress = "{{ Run AFTER the `compress` script }}"
+post_compress = "{{ Run AFTER the `compress` script }}"  # 在 `compress` 脚本之后运行
 ```
 
 在此示例中，`pdm run compress` 将按顺序运行所有这 3 个脚本。
@@ -342,16 +432,25 @@ post_compress = "{{ Run AFTER the `compress` script }}"
     钩子脚本无法接收任何参数。
 
 !!! note "避免名称冲突"
-    如果在 `[tool.pdm.scripts]` 表中存在一个 `install` 脚本，则 `pre_install` 脚本可以同时被 `pdm install` 和 `pdm run install` 触发。因此，建议不要使用保留的名称。
+    如果在 `[tool.pdm.scripts]` 表中存在一个 `install` 脚本，
+    则 `pre_install` 脚本可以同时被 `pdm install` 和 `pdm run install` 触发。
+    因此，建议不要使用保留的名称。
 
 !!! note
-    复合任务也可以具有前后脚本。调用的任务将运行自己的前后脚本。
+    复合任务也可以具有前后脚本。
+    调用的任务将运行自己的前后脚本。
 
 ## 跳过脚本
 
-有时，希望运行一个脚本，但不运行其钩子或前后脚本，这时候可以使用 `--skip=:all` 来禁用所有钩子、前后脚本。还有 `--skip=:pre` 和 `--skip=:post`，分别允许跳过所有 `pre_*` 钩子和所有 `post_*` 钩子。
+有时，希望运行一个脚本，但不运行其钩子或前后脚本，
+这时候可以使用 `--skip=:all` 来禁用所有钩子、前后脚本。
+还有 `--skip=:pre` 和 `--skip=:post`，
+分别允许跳过所有 `pre_*` 钩子和所有 `post_*` 钩子。
 
-还可能需要前脚本但不需要后脚本，或者需要复合任务的所有任务，除了一个。对于这些用例，可以使用更精细的 `--skip` 参数，该参数接受要排除的任务或钩子名称的列表。
+还可能需要前脚本但不需要后脚本，
+或者需要复合任务的所有任务，除了一个。
+对于这些用例，可以使用更精细的 `--skip` 参数，
+该参数接受要排除的任务或钩子名称的列表。
 
 ```bash
 pdm run --skip pre_task1,task2 my-composite
@@ -359,6 +458,7 @@ pdm run --skip pre_task1,task2 my-composite
 
 此命令将运行 `my-composite` 任务，并跳过 `pre_task1` 钩子以及 `task2` 及其钩子。
 
-你还可以在 `PDM_SKIP_HOOKS` 环境变量中提供跳过列表，但只要提供了 `--skip` 参数，它就会被覆盖。
+你还可以在 `PDM_SKIP_HOOKS` 环境变量中提供跳过列表，
+但只要提供了 `--skip` 参数，它就会被覆盖。
 
 关于钩子和前后脚本行为的更多详细信息，请参阅 [专用钩子页面](hooks.md).

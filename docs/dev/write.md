@@ -1,6 +1,7 @@
 # PDM插件
 
-PDM 的目标是成为社区驱动的包管理器。它附带一个功能齐全的插件系统，您可以通过该系统：
+PDM 的目标是成为社区驱动的包管理器。
+它附带一个功能齐全的插件系统，您可以通过该系统：
 
 - 为 PDM 开发一个新的命令
 - 为现有的 PDM 命令添加附加选项
@@ -9,7 +10,9 @@ PDM 的目标是成为社区驱动的包管理器。它附带一个功能齐全�
 
 ## 插件应该做什么
 
-PDM 项目的核心是专注于依赖管理和包发布。您希望与 PDM 集成的其他功能最好位于其自己的插件中，并作为独立的 PyPI 项目发布。如果插件被认为是核心项目的良好补充，它可能有机会被吸收到 PDM 中。
+PDM 项目的核心是专注于依赖管理和包发布。
+您希望与 PDM 集成的其他功能最好位于其自己的插件中，并作为独立的 PyPI 项目发布。
+如果插件被认为是核心项目的良好补充，它可能有机会被吸收到 PDM 中。
 
 ## 编写您自己的插件
 
@@ -45,7 +48,9 @@ class HelloCommand(BaseCommand):
 
 文档字符串将用作命令帮助文本，在 `pdm --help` 中显示。
 
-此外，PDM 的子命令具有两个默认选项：`-v/--verbose` 用于更改详细程度和 `-g/--global` 用于启用全局项目。如果您不想要这些默认选项，请将 `arguments` 类属性重写为 `pdm.cli.options.Option` 对象的列表，或者将其分配为空列表以没有默认选项：
+此外，PDM 的子命令具有两个默认选项：`-v/--verbose` 用于更改详细程度和 `-g/--global` 用于启用全局项目。
+如果您不想要这些默认选项，请将 `arguments` 类属性重写为 `pdm.cli.options.Option` 对象的列表，
+或者将其分配为空列表以没有默认选项：
 
 ```python hl_lines="3"
 class HelloCommand(BaseCommand):
@@ -58,14 +63,16 @@ class HelloCommand(BaseCommand):
 
 ### 将命令注册到核心对象
 
-在插件项目的某个位置编写一个函数。对于函数的名称没有限制，但是该函数应该只接受一个参数 ——PDM 核心对象：
+在插件项目的某个位置编写一个函数。
+对于函数的名称没有限制，但是该函数应该只接受一个参数 ——PDM 核心对象：
 
 ```python hl_lines="2"
 def hello_plugin(core):
     core.register_command(HelloCommand, "hello")
 ```
 
-调用 `core.register_command()` 以注册命令。作为子命令名称的第二个参数是可选的。如果未传递名称，PDM 将查找 `HelloCommand` 的 `name` 属性。
+调用 `core.register_command()` 以注册命令。
+作为子命令名称的第二个参数是可选的。如果未传递名称，PDM 将查找 `HelloCommand` 的 `name` 属性。
 
 ### 添加一个新的配置项
 
@@ -88,7 +95,8 @@ class HelloCommand(BaseCommand):
         print(f"Hello, {name}")
 ```
 
-到目前为止，如果通过 `pdm config get hello.name` 查询配置值，将弹出错误，说明它不是有效的配置键。您需要注册配置项：
+到目前为止，如果通过 `pdm config get hello.name` 查询配置值，将弹出错误，说明它不是有效的配置键。
+您需要注册配置项：
 
 ```python hl_lines="5"
 from pdm.project.config import ConfigItem
@@ -107,7 +115,9 @@ def hello_plugin(core):
 
 ### 其他插件点
 
-除了命令和配置之外，该 core 对象还公开了一些其他方法和属性以重写。PDM 还提供一些您可以收听的信号。有关详细信息，请阅读 [API 参考](../reference/api.md)。
+除了命令和配置之外，该 core 对象还公开了一些其他方法和属性以重写。
+PDM 还提供一些您可以收听的信号。
+有关详细信息，请阅读 [API 参考](../reference/api.md)。
 
 ### 开发 PDM 插件的技巧
 
@@ -128,7 +138,9 @@ plugins = [
 pdm install --plugins
 ```
 
-之后，所有依赖项都可在项目插件库中使用，包括插件本身，以可编辑模式安装。这意味着对代码库的任何更改都会立即生效，无需重新安装。`pdm` 可执行文件也在幕后使用Python解释器，因此如果您从插件项目内运行 `pdm`，插件开发模式将自动激活，并且您可以进行一些测试以查看其工作原理。
+之后，所有依赖项都可在项目插件库中使用，包括插件本身，以可编辑模式安装。
+这意味着对代码库的任何更改都会立即生效，无需重新安装。
+`pdm` 可执行文件也在幕后使用Python解释器，因此如果您从插件项目内运行 `pdm`，插件开发模式将自动激活，并且您可以进行一些测试以查看其工作原理。
 
 ### 测试您的插件
 
