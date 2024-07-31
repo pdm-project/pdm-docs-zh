@@ -6,7 +6,7 @@ PDM 中文文档（社区维护）
 
 ## 维护者
 
-- [mhwy](https://github.com/522247020)
+- [mhwy](https://github.com/522247020) 哪里会英语，全靠 AI 翻译，我只是🐂🐎搬运工！
 
 ## 贡献
 
@@ -46,6 +46,8 @@ python ...\msgfmt.py .\locale\zh-CN\LC_MESSAGES\cli.po
 
 转换完成后会生成 `cli.mo` 文件，转换后默认会在同目录产生。
 如果出现在其他目录下，则将其放入 `locale\zh-CN\LC_MESSAGES` 目录下。
+
+可以使用工具 Poedit 进行翻译。╮(╯▽╰)╭ 不好用！能帮忙看是否重复翻译，能帮忙转换 mo 文件。
 
 * * *
 
