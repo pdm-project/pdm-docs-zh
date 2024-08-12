@@ -118,11 +118,11 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
 
 这些配置按以下顺序读取，以生成最终的源列表：
 
-- 如果在 `pyproject.toml` 的任何源的 `name` 字段中没有出现 `pypi`，则使用 `pypi.url` <!-- TODO 翻译和原文都很别扭 -->
+- 如果在 `pyproject.toml` 的任何源的 `name` 字段中没有出现 `pypi`，则使用 `pypi.url`
 - 在 `pyproject.toml` 文件中的源
 - PDM 配置中的 `pypi.<name>.url`
 
-您可以将 `pypi.ignore_stored_index` 设置为 `true`，以禁用 PDM 配置中的所有索引，并仅使用在 `pyproject.toml` 中指定的索引。
+您可以将 `pypi.ignore_stored_index` 设置为 `true`，以禁用 PDM 配置中的所有其他索引，并仅使用在 `pyproject.toml` 中指定的索引。
 
 !!! TIP "禁用默认 PyPI 索引"
     如果要省略默认的 PyPI 索引，只需将源名称设置为 `pypi` ，该源将**替换**它。
