@@ -203,6 +203,8 @@ pdm config repository.pypi.ca_certs /path/to/ca_bundle.pem
 pdm self add truststore
 ```
 
+此外，如果设置了环境变量 `REQUESTS_CA_BUNDLE` 和 `CURL_CA_BUNDLE` 指定的 CA 证书，则将使用它们。
+
 ### 索引配置合并
 
 索引配置与配置文件中的 `[[tool.pdm.source]]` 表或 `pypi.<name>` 键 `name` 字段合并。
