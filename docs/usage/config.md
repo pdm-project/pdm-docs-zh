@@ -143,12 +143,22 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
 
 默认情况下，所有来源都被认为是相等的，其中的包按版本和轮标签排序，选择与最高版本最匹配的包。
 
-在某些情况下，您可能希望从首选源返回包，如果前一个源中缺少其他包，则搜索其他包。PDM 通过读取配置 `respect-source-order` 来支持此功能：
+在某些情况下，您可能希望从首选源返回包，如果前一个源中缺少其他包，则搜索其他包。PDM 通过读取配置 `respect-source-order` 来支持此功能。列入：
 
 ```toml
 [tool.pdm.resolution]
 respect-source-order = true
+
+[[tool.pdm.source]]
+name = "private"
+url = "https://private.pypi.org/simple"
+
+[[tool.pdm.source]]
+name = "pypi"
+url = "https://pypi.org/simple"
 ```
+
+首先从 `private` 索引中搜索包，只有当那里没有找到匹配的版本时，才会从 `pypi` 索引中搜索它。
 
 ### 指定单个包的索引
 
