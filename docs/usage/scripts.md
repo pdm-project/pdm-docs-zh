@@ -247,8 +247,24 @@ start.cmd = "flask run -p 54321"
 start.env_file.override = ".env"
 ```
 
-!!! note
+!!! note "环境变量加载顺序"
+    从不同源加载的环境变量，按以下顺序加载：
+
+    1. 操作系统环境变量
+    2. 项目环境，如 `PDM_PROJECT_ROOT`, `PATH`, `VIRTUAL_ENV`, etc
+    3. 由 `env_file` 指定的 Dotenv 文档
+    4. `env` 指定的环境变量映射
+
+    来自后一个源的环境变量将覆盖来自前一个源的环境变量。
     在复合任务级别指定的 dotenv 文件将覆盖调用任务定义的 dotenv 文件。
+
+    环境变量可以包含对之前加载的源中的另一个环境变量的引用，例如：
+
+    ```
+    VAR=42
+    FOO=hello-${VAR}
+    ```
+    will result in `FOO=hello-42`. The reference can also contain a default value with the syntax `${VAR:-default}`.
 
 ### `working_dir`
 

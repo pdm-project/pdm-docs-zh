@@ -118,11 +118,11 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
 
 这些配置按以下顺序读取，以生成最终的源列表：
 
-- 如果在 `pyproject.toml` 的任何源的 `name` 字段中没有出现 `pypi`，则使用 `pypi.url` <!-- TODO 翻译和原文都很别扭 -->
+- 如果在 `pyproject.toml` 的任何源的 `name` 字段中没有出现 `pypi`，则使用 `pypi.url`
 - 在 `pyproject.toml` 文件中的源
 - PDM 配置中的 `pypi.<name>.url`
 
-您可以将 `pypi.ignore_stored_index` 设置为 `true`，以禁用 PDM 配置中的所有索引，并仅使用在 `pyproject.toml` 中指定的索引。
+您可以将 `pypi.ignore_stored_index` 设置为 `true`，以禁用 PDM 配置中的所有其他索引，并仅使用在 `pyproject.toml` 中指定的索引。
 
 !!! TIP "禁用默认 PyPI 索引"
     如果要省略默认的 PyPI 索引，只需将源名称设置为 `pypi` ，该源将**替换**它。
@@ -143,12 +143,22 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
 
 默认情况下，所有来源都被认为是相等的，其中的包按版本和轮标签排序，选择与最高版本最匹配的包。
 
-在某些情况下，您可能希望从首选源返回包，如果前一个源中缺少其他包，则搜索其他包。PDM 通过读取配置 `respect-source-order` 来支持此功能：
+在某些情况下，您可能希望从首选源返回包，如果前一个源中缺少其他包，则搜索其他包。PDM 通过读取配置 `respect-source-order` 来支持此功能。列入：
 
 ```toml
 [tool.pdm.resolution]
 respect-source-order = true
+
+[[tool.pdm.source]]
+name = "private"
+url = "https://private.pypi.org/simple"
+
+[[tool.pdm.source]]
+name = "pypi"
+url = "https://pypi.org/simple"
 ```
+
+首先从 `private` 索引中搜索包，只有当那里没有找到匹配的版本时，才会从 `pypi` 索引中搜索它。
 
 ### 指定单个包的索引
 
@@ -192,6 +202,8 @@ pdm config repository.pypi.ca_certs /path/to/ca_bundle.pem
 ```bash
 pdm self add truststore
 ```
+
+此外，如果设置了环境变量 `REQUESTS_CA_BUNDLE` 和 `CURL_CA_BUNDLE` 指定的 CA 证书，则将使用它们。
 
 ### 索引配置合并
 
