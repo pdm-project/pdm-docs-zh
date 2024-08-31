@@ -116,6 +116,15 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
 ??? note "关于源类型"
     默认情况下，所有源都是 `index` 这是依据 [PEP 503](https://www.python.org/dev/peps/pep-0503/) ，如 `pip --index-url` 和 `--extra-index-url` ，但是，您可以将类型设置为 `find_links`，其中包含要直接查找的文件或链接。有关两种类型之间的区别，请参[阅此答案](https://stackoverflow.com/a/46651848)。
 
+    例如，要使用本地目录作为源：
+
+    ```toml
+    [[tool.pdm.source]]
+    name = "local"
+    url = "file:///${PROJECT_ROOT}/packages"
+    type = "find_links"
+    ```
+
 这些配置按以下顺序读取，以生成最终的源列表：
 
 - 如果在 `pyproject.toml` 的任何源的 `name` 字段中没有出现 `pypi`，则使用 `pypi.url`

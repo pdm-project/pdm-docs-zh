@@ -76,8 +76,12 @@ pprint([(k, v["title"]) for k, v in data.items()][:10])
 
 PDM 还支持在可选的 `[tool.pdm.scripts]` 部分中定义自定义脚本快捷方式。
 
-!!! NOTE
-  `[tool.pdm.scripts]` 目录不得与 `[project.scripts]` 混淆。后者用于将命令作为包的一部分安装，详细信息请参阅 [此处](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts)。
+!!! NOTE "与 `[project.scripts]` 混淆？"
+    在 `pyproject.toml` 中有另一个字段 `[project.scripts]`， 并且这些脚本也可以使用 `pdm run` 来调用。它用于定义随包安装的控制台脚本入口点。因此，可执行文件只能在项目本身安装到环境中后才能运行。也就是说，你必须设置  `distribution = true`。
+
+    相比之下， `[tool.pdm.scripts]` 定义了一些在你的项目中要运行的任务。无论 `distribution` 是 `true` 还是 `false` ，它对项目都有效。 这些任务主要用于开发和测试目的，并且支持更多类型和设置，这将在后面展示。你可以将它视为  `Makefile` 的替代品。它不需要项目被安装，但需要存在一个 `pyproject.toml` 文件。
+
+    查看关于 `[project.scripts]` 的更多[解释](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts)。
 
 然后，你可以运行 `pdm run <script_name>` 以在你的 PDM 项目的上下文中调用脚本。例如：
 

@@ -4,6 +4,9 @@
 
 与 [PEP 582](https://www.python.org/dev/peps/pep-0582/) 相比，虚拟环境被认为更加成熟，并且在 Python 生态系统以及 IDE 中有更好的支持。因此，默认情况下，如果未另行配置，PDM 将使用虚拟环境模式。
 
+!!! NOTE "配置 pdm 使用虚拟环境或 PEP 582"
+    默认情况下，pdm 被配置为使用虚拟环境而不是 PEP 582。 但这个行为可以通过设置配置变量 `pdm config python.use_venv False`  来改变。
+
 **如果项目解释器（存储在 `.pdm-python` 中的解释器，可以通过 `pdm info` 检查）来自虚拟环境，则将使用虚拟环境。**
 
 ## 虚拟环境自动创建
