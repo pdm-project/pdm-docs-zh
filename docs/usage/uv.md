@@ -10,6 +10,14 @@ pdm config use_uv true
 
 PDM 将自动检测系统上的 `uv`  二进制文件。你需要先安装 `uv`。更多详细信息请参阅 [uv 的安装指南](https://docs.astral.sh/uv/getting-started/installation/)。
 
+## Reuse the Python installations of uv
+
+uv 也支持安装 Python 解释器。为避免开销，你可以通过以下方式配置 PDM 以复用 uv 的 Python 安装：
+
+```
+pdm config python.install_root $(uv python dir)
+```
+
 ## 局限性
 
 尽管 uv 带来了显著的性能提升，但需要注意 uv 的以下局限性：
