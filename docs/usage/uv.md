@@ -1,5 +1,7 @@
 # 使用 uv（实验性）
 
++++ 2.19.0
+
 PDM 对 [uv](https://github.com/astral-sh/uv) 作为解析器和安装器有实验性支持。要启用它：
 
 ```
