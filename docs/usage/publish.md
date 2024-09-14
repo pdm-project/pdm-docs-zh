@@ -23,6 +23,11 @@ pdm publish --repository https://test.pypi.org/legacy/
 为此，请按照[指南](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)添加发布者并编写 GitHub Actions 工作流，如下所示：
 
 ```yaml
+on:
+  release:
+    types: [published]
+
+
 jobs:
   pypi-publish:
     name: upload release to PyPI
