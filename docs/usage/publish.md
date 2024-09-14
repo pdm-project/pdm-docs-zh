@@ -33,9 +33,9 @@ jobs:
       # 重要提示：这个权限对于可信发布是必需的。
       id-token: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: pdm-project/setup-pdm@v3
+      - uses: pdm-project/setup-pdm@v4
 
       - name: Publish package distributions to PyPI
         run: pdm publish
