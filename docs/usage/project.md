@@ -18,7 +18,7 @@ pdm init
 或者，您可以通过 `PDM_PYTHON`环境变量指定 Python 解释器路径。设置后，保存的 `.pdm-python` 路径将被忽略。
 
 !!! warning "使用现有环境"
-    如果您选择使用现有环境，例如重复使用由 `conda` 创建的环境，请注意，在运行 `pdm sync --clean` 或 `pdm remove` 时，PDM 将 删除 未在 `pyproject.toml` 或 `pdm.lock` 中列出的依赖项。这可能会导致破坏性后果。因此，尽量不要在多个项目之间共享环境。
+如果您选择使用现有环境，例如重复使用由 `conda` 创建的环境，请注意，在运行 `pdm sync --clean` 或 `pdm remove` 时，PDM 将 _删除_ 未在 `pyproject.toml` 或 `pdm.lock` 中列出的依赖项。这可能会导致破坏性后果。因此，尽量不要在多个项目之间共享环境。
 
 ### 使用 PDM 安装 Python 解释器
 
@@ -99,8 +99,7 @@ pdm python install --min
 
 ## 指定 `requires-python`
 
-您需要为项目设置适当的 `requires-python` 值。这是一个重要属性，会影响依赖关系的解析方式。基本上，每个包 `requires-python` 都必须**涵盖**项目的 `requires-python`  范围。
-例如，请考虑以下设置：
+您需要为项目设置适当的 `requires-python` 值。这是一个重要属性，会影响依赖关系的解析方式。基本上，每个包 `requires-python` 都必须_涵盖_项目的 `requires-python`  范围。例如，请考虑以下设置：
 
 - 项目: `requires-python = ">=3.9"`
 - 包 `foo`: `requires-python = ">=3.7,<3.11"`
@@ -112,7 +111,8 @@ Unable to find a resolution because the following dependencies don't work
 on all Python versions defined by the project's `requires-python`
 ```
 
-因为依赖项 `requires-python` 是 `>=3.7,<3.11`，所以它不覆盖项目的 `requires-python` 范围 `>=3.9`。换句话说，该项目承诺在 Python 3.9、3.10、3.11（等）上运行，但依赖项不支持 Python 3.11（或更高版本）。由于 PDM 创建了一个跨平台锁定文件，该文件应适用于 `requires-python` 该范围内的所有 Python 版本，因此它找不到有效的解决方案。要解决此问题，您需要将最大版本添加到 `requires-python` 中，例如 `>=3.9,<3.11`。
+因为依赖项 `requires-python` 是 `>=3.7,<3.11`，所以它 _不_ 涵盖项目的 `requires-python` 范围 `>=3.9`。换句话说，该项目承诺在 Python 3.9、3.10、3.11（等）上运行，但依赖项不支持 Python 3.11（或更高版本）。由于 PDM 创建了一个跨平台锁定文件，该文件应适用于 `requires-python` 该范围内的所有 Python 版本，因此它找不到有效的解决方案。
+要解决此问题，您需要将最大版本添加到 `requires-python` 中，例如 `>=3.9,<3.11`。
 
 `requires-python` 的值是根据 [PEP 440](https://peps.python.org/pep-0440/#version-specifiers)定义的版本指定符。以下是一些示例：
 
@@ -123,6 +123,10 @@ on all Python versions defined by the project's `requires-python`
 | `>=3.6,!=3.8.*,!=3.9.*` | Python 3.6 及更高版本，3.8 和 3.9 除外 |
 
 ## 使用较旧的 Python 版本
+
+--- 2.19.0
+
+    PDM 现在支持 3.8 及更高版本作为项目的 python 版本。
 
 尽管 PDM 在 Python 3.8 及更高版本上运行，但您仍然可以为 **工作项目** 使用较低的 Python 版本。但请记住，如果你的项目是一个需要构建、发布或安装的库，你要确保正在使用的 PEP 517 构建后端支持你需要的最低 Python 版本。例如，默认后端 `pdm-backend` 仅适用于 Python 3.7+，因此如果您在使用 Python 3.6 的项目上运行 [`pdm build`](../reference/cli.md#build)，则会收到错误。大多数现代构建后端都放弃了对 Python 3.6 及更低版本的支持，因此强烈建议将 Python 版本升级到 3.7+。以下是一些常用构建后端支持的 Python 范围，我们只列出那些支持 PEP 621 的后端，否则 PDM 无法使用它们。
 
@@ -151,7 +155,7 @@ PDM 提供了 `import` 命令，因此您不必手动初始化项目，它现在
 此外，当您执行 [`pdm init`](../reference/cli.md#init)  或 [`pdm install`](../reference/cli.md#install) 时，如果您的 PDM 项目尚未初始化，PDM 可以自动检测可能要导入的文件。
 
 !!! info
-    转换一个 `setup.py` 将使用项目解释器执行文件。确保 `setuptools`与解释器一起安装，并且 是可信的 `setup.py`。
+转换一个 `setup.py` 将使用项目解释器执行文件。确保 `setuptools`与解释器一起安装，并且 是可信的 `setup.py`。
 
 ## 使用版本控制
 
