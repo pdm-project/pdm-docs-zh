@@ -189,7 +189,8 @@ PDM 支持为 Bash、Zsh、Fish 或 Powershell 生成补全脚本。以下是每
 === "Bash"
 
     ```bash
-    pdm completion bash > /etc/bash_completion.d/pdm.bash-completion
+    pdm completion bash > /etc/bash_completion.d/pdm.bash-completion  # 需要 root (sudo)。有关替代方案，请参阅下一步
+    pdm completion bash > ~/.bash_completion  # 不需要 root （sudo）。仅针对您的用户帐户安装
     ```
 
 === "Zsh"
