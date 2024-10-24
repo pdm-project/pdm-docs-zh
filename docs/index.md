@@ -178,6 +178,20 @@ usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d 
 pdm self update
 ```
 
+### 卸载
+
+如果您需要从您的系统中卸载 PDM，您可以执行下面的脚本：
+
+=== "Linux/Mac"
+    ```bash
+    curl -sSL https://pdm-project.org/install-pdm.py | python3 - --remove
+    ```
+=== "Windows"
+    ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://pdm-project.org/install-pdm.py | py - --remove"
+    ```
+如果您使用第三方包管理器，比如 Homebrew 安装了 PDM，您也可以用包管理器的卸载方法卸载 PDM，比如 `brew uninstall pdm`。
+
 ## 各系统构建版本情况
 
 [![Packaging status](https://repology.org/badge/vertical-allrepos/pdm.svg)](https://repology.org/project/pdm/versions)
