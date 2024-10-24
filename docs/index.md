@@ -44,11 +44,11 @@ PDM 需要 python 版本 3.8 或更高版本。
 === "Windows"
 
     ```powershell
-    (Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py -UseBasicParsing).Content | py -
+    powershell -ExecutionPolicy ByPass -c "irm https://pdm-project.org/install-pdm.py | py -"
     ```
 
 !!! NOTE
-    在 Windows 上，如果您没有安装可选的 ``py`` 启动器（包括通过 Microsoft 商店安装 Python），请将``py`` 替换为 ``python``。
+    在 Windows 上，如果您没有安装可选的 `py` 启动器（包括通过 Microsoft 商店安装 Python），请将 `py` 替换为 `python`。
 
 出于安全原因，您应验证 `install-pdm.py` 文件的校验和。
 您可以从 [install-pdm.py.sha256](https://pdm-project.org/install-pdm.py.sha256) 下载该文件。
