@@ -47,7 +47,7 @@ pdm python list
 pdm python remove 3.9.8
 ```
 
-安装一个自由线程的 Python 解释器：
+安装一个无 GIL 锁的 Python 解释器：
 
 ```bash
 pdm python install 3.13t
