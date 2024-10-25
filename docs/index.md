@@ -44,11 +44,11 @@ PDM 需要 python 版本 3.8 或更高版本。
 === "Windows"
 
     ```powershell
-    (Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py -UseBasicParsing).Content | py -
+    powershell -ExecutionPolicy ByPass -c "irm https://pdm-project.org/install-pdm.py | py -"
     ```
 
 !!! NOTE
-    在 Windows 上，如果您没有安装可选的 ``py`` 启动器（包括通过 Microsoft 商店安装 Python），请将``py`` 替换为 ``python``。
+    在 Windows 上，如果您没有安装可选的 `py` 启动器（包括通过 Microsoft 商店安装 Python），请将 `py` 替换为 `python`。
 
 出于安全原因，您应验证 `install-pdm.py` 文件的校验和。
 您可以从 [install-pdm.py.sha256](https://pdm-project.org/install-pdm.py.sha256) 下载该文件。
@@ -177,6 +177,20 @@ usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d 
 ```bash
 pdm self update
 ```
+
+### 卸载
+
+如果您需要从您的系统中卸载 PDM，您可以执行下面的脚本：
+
+=== "Linux/Mac"
+    ```bash
+    curl -sSL https://pdm-project.org/install-pdm.py | python3 - --remove
+    ```
+=== "Windows"
+    ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://pdm-project.org/install-pdm.py | py - --remove"
+    ```
+如果您使用第三方包管理器，比如 Homebrew 安装了 PDM，您也可以用包管理器的卸载方法卸载 PDM，比如 `brew uninstall pdm`。
 
 ## 各系统构建版本情况
 

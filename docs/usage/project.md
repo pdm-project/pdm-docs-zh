@@ -47,6 +47,12 @@ pdm python list
 pdm python remove 3.9.8
 ```
 
+安装一个无 GIL 锁的 Python 解释器：
+
+```bash
+pdm python install 3.13t
+```
+
 !!! TIP "与 Rye 共享安装"
 
   PDM 使用与 [Rye](https://rye-up.com) 相同的源来安装 Python 解释器。如果您同时使用 Rye，则可以将 `python.install_root` 指向与 Rye 相同的目录以共享 Python 解释器：
