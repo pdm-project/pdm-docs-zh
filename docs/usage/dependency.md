@@ -137,7 +137,7 @@ pdm add -dG test pytest
 这将导致 pyproject.toml 如下：
 
 ```toml
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 test = ["pytest"]
 ```
 
@@ -145,7 +145,7 @@ test = ["pytest"]
 包索引不会知道这些依赖项。模式类似于 `optional-dependencies`，只不过在 `tool.pdm` 表中。
 
 ```toml
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 lint = [
     "flake8",
     "black"
@@ -154,10 +154,10 @@ test = ["pytest", "pytest-cov"]
 doc = ["mkdocs"]
 ```
 
-为了向后兼容，如果只指定了 `-d` 或 `--dev`，则依赖项将默认进入 `[tool.pdm.dev-dependencies]` 下的 `dev` 组。
+为了向后兼容，如果只指定了 `-d` 或 `--dev`，则依赖项将默认进入 `[dependency-groups]` 下的 `dev` 组。
 
 !!! NOTE
-    相同的组名不能同时出现在 `[tool.pdm.dev-dependencies]` 和 `[project.optional-dependencies]` 中。
+    相同的组名不能同时出现在 `[dependency-groups]` 和 `[project.optional-dependencies]` 中。
 
 ### 可编辑的依赖项
 
@@ -258,7 +258,7 @@ pdm update -dG test pytest
 pdm remove requests
 # 从可选依赖项的 'web' 组中删除 h11
 pdm remove -G web h11
-# 从开发依赖项的 `test` 组中删除 pytest-cov
+# 从依赖项的 `test` 组中删除 pytest-cov
 pdm remove -dG test pytest-cov
 ```
 
@@ -286,11 +286,11 @@ pdm outdated requests* flask*
 [project]  # 这是生产依赖项
 dependencies = ["requests"]
 
-[project.optional-dependencies]  # 这是可选依赖项
+[project.optional-dependencies]  # 这是可选依赖关系
 extra1 = ["flask"]
 extra2 = ["django"]
 
-[tool.pdm.dev-dependencies]  # 这是开发依赖项
+[dependency-groups] # 这是开发依赖关系
 dev1 = ["pytest"]
 dev2 = ["mkdocs"]
 ```

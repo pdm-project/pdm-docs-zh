@@ -186,7 +186,7 @@ CMD ["python", "src/__main__.py"]
 `project/pyproject.toml`:
 
 ```toml
-[tool.pdm.dev-dependencies]
+[dependency-groups]
 dev = [
     "-e file:///${PROJECT_ROOT}/packages/foo-core",
     "-e file:///${PROJECT_ROOT}/packages/foo-cli",
@@ -244,7 +244,7 @@ dependencies = ["foo-core"]
 
 ### 将当前工作集与 `pdm.lock` 同步
 
-此钩子包装了 `pdm sync` 命令以及任何有效参数。它可以作为一个钩子来确保您的当前工作集与 `pdm.lock` 同步，无论何时您检出或合并一个分支。如果您想使用系统凭据存储，则将 keyring 添加到 `additional_dependencies`。
+此钩子包装了 `pdm sync` 命令以及任何有效参数。它可以作为一个钩子来确保您的当前工作集与 `pdm.lock` 同步，无论何时您检出或合并一个分支。如果您想使用系统凭据存储，则将 _keyring_ 添加到 `additional_dependencies`。
 
 ```yaml
 - repo: https://github.com/pdm-project/pdm
