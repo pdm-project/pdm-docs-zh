@@ -112,7 +112,7 @@ Removed C:\Users\Frost Ming\AppData\Local\pdm\pdm\venvs\test-project-8Sgn_62n-fo
     另外，如果项目解释器是一个 venv Python，你可以省略跟在 activate 后的名称参数。
 
 !!! NOTE
-    `venv activate` **不会** 切换项目使用的Python解释器。它仅通过将虚拟环境路径注入到环境变量中来更改shell。对于前述目的，请使用 `pdm use` 命令。
+    `venv activate` **不会** 切换项目使用的Python解释器。它仅通过将虚拟环境路径注入到环境变量中来更改shell。对于前面提到的，请使用 `pdm use` 命令。
 
 更多CLI使用方法，请参阅 [`pdm venv`](../reference/cli.md#venv) documentation.
 
