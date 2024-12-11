@@ -134,15 +134,15 @@ PDM 也支持定义对开发有用的依赖组。
 pdm add -dG test pytest
 ```
 
-这将导致 pyproject.toml 如下：
+这将导致 `pyproject.toml` 如下：
 
 ```toml
 [dependency-groups]
 test = ["pytest"]
 ```
 
-您可以有几个开发依赖项组。与 `optional-dependencies` 类似，它们不会出现在包分发的元数据中，例如 `PKG-INFO` 或 `METADATA`。
-包索引不会知道这些依赖项。模式类似于 `optional-dependencies`，只不过在 `tool.pdm` 表中。
+您可以有几组仅开发依赖项。与 `optional-dependencies` 不同，它们不会出现在包分发元数据中，例如 `PKG-INFO` 或 `METADATA`，
+这意味着包索引不会意识到这些依赖关系。该模式类似于 `optional-dependencies`。
 
 ```toml
 [dependency-groups]
