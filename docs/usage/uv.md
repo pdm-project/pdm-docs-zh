@@ -27,4 +27,4 @@ pdm config python.install_root $(uv python dir)
 - uv 不支持 `inherit_metadata` 锁定策略。 在写入锁定文件时，这将被忽略。
 - 不支持除 `all` 和 `reuse` 之外的更新策略。
 - 可编辑需求必须是本地路径。像 `-e git+<git_url>` 这样的需求不被支持。
-- `[tool.pdm.resolution]` 下的 `overrides` 和 `excludes` 设置不被支持。
+- `[tool.pdm.resolution]` 下的 `excludes` 设置不被支持。
