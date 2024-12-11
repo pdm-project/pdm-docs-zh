@@ -130,11 +130,11 @@ on all Python versions defined by the project's `requires-python`
 
 ## 使用较旧的 Python 版本
 
---- 2.19.0
+--- 2.21.0
 
-    PDM 现在支持 3.8 及更高版本作为项目的 python 版本。
+    PDM 现在支持 3.9 及更高版本作为项目的 python 版本。
 
-尽管 PDM 在 Python 3.8 及更高版本上运行，但您仍然可以为 **工作项目** 使用较低的 Python 版本。但请记住，如果你的项目是一个需要构建、发布或安装的库，你要确保正在使用的 PEP 517 构建后端支持你需要的最低 Python 版本。例如，默认后端 `pdm-backend` 仅适用于 Python 3.7+，因此如果您在使用 Python 3.6 的项目上运行 [`pdm build`](../reference/cli.md#build)，则会收到错误。大多数现代构建后端都放弃了对 Python 3.6 及更低版本的支持，因此强烈建议将 Python 版本升级到 3.7+。以下是一些常用构建后端支持的 Python 范围，我们只列出那些支持 PEP 621 的后端，否则 PDM 无法使用它们。
+尽管 PDM 在 Python 3.9 及更高版本上运行，但您仍然可以为 **工作项目** 使用较低的 Python 版本。但请记住，如果你的项目是一个需要构建、发布或安装的库，你要确保正在使用的 PEP 517 构建后端支持你需要的最低 Python 版本。例如，默认后端 `pdm-backend` 仅适用于 Python 3.7+，因此如果您在使用 Python 3.6 的项目上运行 [`pdm build`](../reference/cli.md#build)，则会收到错误。大多数现代构建后端都放弃了对 Python 3.6 及更低版本的支持，因此强烈建议将 Python 版本升级到 3.7+。以下是一些常用构建后端支持的 Python 范围，我们只列出那些支持 PEP 621 的后端，否则 PDM 无法使用它们。
 
 | Backend               | 支持的 Python | 支持 PEP 621 |
 | --------------------- | ---------------- | --------------- |
@@ -195,15 +195,15 @@ Project Packages:
 $ pdm info --env
 {
   "implementation_name": "cpython",
-  "implementation_version": "3.8.0",
+  "implementation_version": "3.9.0",
   "os_name": "nt",
   "platform_machine": "AMD64",
   "platform_release": "10",
   "platform_system": "Windows",
   "platform_version": "10.0.18362",
-  "python_full_version": "3.8.0",
+  "python_full_version": "3.9.0",
   "platform_python_implementation": "CPython",
-  "python_version": "3.8",
+  "python_version": "3.9",
   "sys_platform": "win32"
 }
 ```

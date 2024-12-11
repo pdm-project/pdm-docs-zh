@@ -24,14 +24,14 @@
 
 ## 安装
 
-PDM 需要安装 Python 3.8+。它适用于多个平台，包括 Windows、Linux 和 macOS。
+PDM 需要安装 Python 3.9+。它适用于多个平台，包括 Windows、Linux 和 macOS。
 
 !!! NOTE
     你仍然可以让你的项目在较低的 Python 版本上工作，请阅读如何做到这一点 [点击这里](usage/project.md#working-with-python-37)。
 
 ### 推荐安装方式
 
-PDM 需要 python 版本 3.8 或更高版本。
+PDM 需要 python 版本 3.9 或更高版本。
 
 与 Pip 一样，PDM 提供了一个安装脚本，用于将 PDM 安装到隔离环境中。
 

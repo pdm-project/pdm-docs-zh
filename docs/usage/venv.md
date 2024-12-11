@@ -30,12 +30,12 @@
 你可以创建任意Python版本的多个虚拟环境。
 
 ```bash
-# 基于 3.8 解释器创建虚拟环境
-pdm venv create 3.8
+# 基于 3.9 解释器创建虚拟环境
+pdm venv create 3.9
 # 分配一个与版本字符串不同的名称
-pdm venv create --name for-test 3.8
+pdm venv create --name for-test 3.9
 # 使用 venv 作为后端创建，支持 3 个后端：virtualenv（默认）、venv、conda
-pdm venv create --with venv 3.9
+pdm venv create --with venv 3.10
 ```
 
 ## 虚拟环境的位置
