@@ -284,6 +284,10 @@ start.working_dir = "subdir"
 
 相对路径将相对于项目根目录解析。
 
++++ 2.20.2
+
+为了识别原始的调用工作目录，每个脚本都会注入环境变量 `PDC_RUN_CWD`。
+
 ### `site_packages`
 
 为了确保运行环境与外部 Python 解释器正确隔离，
