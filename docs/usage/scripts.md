@@ -14,7 +14,7 @@ pdm run flask run -p 54321
 
 +++ 2.16.0
 
-PDM 能够运行带有 [内联脚本元数据](https://peps.python.org/pep-0723/) 的单文件脚本。
+PDM 可以运行带有由 PEP 723 规定的[内联脚本元数据](https://peps.python.org/pep-0723/)的单文件脚本。
 
 以下是一个带有嵌入式元数据的脚本示例：
 
