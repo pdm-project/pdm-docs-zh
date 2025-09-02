@@ -41,13 +41,13 @@ pdm config --local pypi.url "https://test.pypi.org/simple"
 
 - `$XDG_CONFIG_HOME/pdm` （在大多数情况下是在 `~/.config/pdm` 这个位置） 在 Linux 上的默认位置由 [XDG 基本目录规范定义](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 - `~/Library/Application Support/pdm` 在 macOS 上的默认位置由 [Apple 文件系统基础知识所定义](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
-- `%USERPROFILE%\AppData\Local\pdm`  在 Windows 上的默认位置由 [已知文件夹](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 中定义
+- `%USERPROFILE%\AppData\Local\pdm\pdm`  在 Windows 上的默认位置由 [已知文件夹](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 中定义
 
 并且 `<SITE_CONFIG_ROOT>` 的存储位置为：
 
 - `$XDG_CONFIG_DIRS/pdm` （在大多数情况下是在 `/etc/xdg/pdm` 这个位置） 在 Linux 上的默认位置由 [XDG 基本目录规范定义](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
 - `/Library/Application Support/pdm` 在 macOS 上的默认位置由 [Apple 文件系统基础知识所定义](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)
-- `C:\ProgramData\pdm\pdm` 在 Windows 上的默认位置由 [已知文件夹](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 中定义
+- `%ProgramData%\pdm\pdm` 在 Windows 上的默认位置由 [已知文件夹](https://docs.microsoft.com/en-us/windows/win32/shell/known-folders) 中定义
 
 如果使用 `-g/--global` 选项，则第一项将替换为 `<CONFIG_ROOT>/global-project/pdm.toml`。
 
