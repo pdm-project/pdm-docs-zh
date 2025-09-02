@@ -139,7 +139,7 @@ usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d 
     ```
     asdf plugin add pdm
     asdf install pdm latest
-    asdf install pdm
+    asdf local pdm latest
     ```
 
 === "inside project"
