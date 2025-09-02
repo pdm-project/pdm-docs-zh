@@ -45,6 +45,19 @@ pdm lock --refresh
 
 此命令还会刷新锁定文件中记录的_所有_文件哈希。
 
+## 更改锁文件格式
+
+PDM 支持两种锁文件格式：`pdm`（默认文件名为 `pdm.lock`）和 `pylock`（默认文件名为 `pylock.toml`）。默认格式为 `pdm`。
+
++++ 2.25.0
+    新增了对 [PEP 751](https://packaging.python.org/en/latest/specifications/pylock-toml/#pylock-toml-spec) 标准的 pylock 文件格式的实验性支持。这是一种标准化的锁文件格式，旨在最大限度减少不同 Python 包管理器之间的差异，增强与其他工具的互操作性。它将在未来的 PDM 版本中成为默认格式。有关更多详情，请参阅该规范文档。
+
+你可以使用 `pdm config` 命令切换到 `pylock` 格式：
+
+```bash
+pdm config lock.format pylock
+```
+
 ## 指定要使用的其他锁定文件
 
 默认情况下，PDM 在当前目录中使用 `pdm.lock`。您可以使用选项 `-L/--lockfile` 或 `PDM_LOCKFILE` 环境变量指定另一个锁定文件：
@@ -245,12 +258,12 @@ To fix this, you could loosen the dependency version constraints in pyproject.to
 pdm export -o requirements.txt
 ```
 
-!!! TIP
+!!! tip
     你也可以用 [`.pre-commit` hook](./advanced.md#hooks-for-pre-commit) 钩子跑 `pdm export`。
 
 +++ 2.24.0
 
-此外，PDM 支持导出为 [PEP 751](https://peps.python.org/pep-0751/) 所定义的 `pylock.toml` 格式。执行以下命令可将您的锁定文件转换为符合 PEP 751 标准的格式：
+此外，PDM 支持导出为 [PEP 751](https://packaging.python.org/en/latest/specifications/pylock-toml/#pylock-toml-spec) 所定义的 `pylock.toml` 格式。执行以下命令可将您的锁定文件转换为符合 PEP 751 标准的格式：
 
 ```bash
 pdm export -f pylock -o pylock.toml
