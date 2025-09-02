@@ -6,20 +6,24 @@ edit_uri: edit/main/docs
 theme:
   name: material
   palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
     - scheme: default
       media: "(prefers-color-scheme: light)"
       primary: deep purple
       accent: teal
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
       primary: deep purple
       accent: teal
       toggle:
-        icon: material/weather-night
-        name: Switch to light mode
+        icon: material/brightness-4
+        name: Switch to system preference
   font:
     text: Open Sans
     code: Fira Code
@@ -36,21 +40,28 @@ plugins:
   - markdown-exec
   - "mkdocs-version-annotations":
       version_added_admonition: "tip"
-      version_added_title: "在版本 \\1 中添加"
-      version_changed_title: "在版本 \\1 中更改"
-      version_removed_title: "在版本 \\1 中移除"
   - mkdocstrings:
+      enable_inventory: true
       handlers:
         python:
           options:
             docstring_style: google
+  - redirects:
+      redirect_maps:
+        'plugin/fixtures.md': 'dev/fixtures.md'
+        'plugin/write.md': 'dev/write.md'
+        'pyproject/build.md': 'reference/build.md'
+        'plugin/reference.md': 'reference/api.md'
+        'usage/cli_reference.md': 'reference/cli.md'
+        'usage/configuration.md': 'reference/configuration.md'
+        'pyproject/pep621.md': 'reference/pep621.md'
 
 nav:
-  - 用法:
-      - 简介: index.md
+  - Usage:
+      - Introduction: index.md
       - usage/project.md
       - usage/dependency.md
-      - 锁定文件:
+      - Lock Files:
         - usage/lockfile.md
         - usage/lock-targets.md
       - usage/uv.md
@@ -62,19 +73,19 @@ nav:
       - usage/venv.md
       - usage/pep582.md
       - usage/template.md
-  - 参考:
+  - Reference:
       - reference/pep621.md
       - reference/configuration.md
       - reference/build.md
       - reference/cli.md
       - reference/api.md
-  - 开发:
+  - Development:
       - dev/write.md
       - dev/fixtures.md
-      - 贡献指南: /en/latest/dev/contributing/
-      - 改动日志: /en/latest/dev/changelog/
+      - dev/contributing.md
+      - dev/changelog.md
       - dev/benchmark.md
-  - 赞助: https://github.com/sponsors/pdm-project
+  - Sponsor: https://github.com/sponsors/pdm-project
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -122,8 +133,10 @@ extra:
     - name: '🇨🇳 简体中文'
       link: /zh-cn/
       lang: zh
-
 extra_css:
   - assets/extra.css
 extra_javascript:
   - assets/extra.js
+
+watch:
+  - src
