@@ -15,7 +15,7 @@ PDM 将自动检测系统上的 `uv`  二进制文件。你需要先安装 `uv`�
 uv 也支持安装 Python 解释器。为避免开销，你可以通过以下方式配置 PDM 以复用 uv 的 Python 安装：
 
 ```
-pdm config python.install_root $(uv python dir)
+pdm config python.install_root $(uv python dir --color never)
 ```
 
 ## 局限性
