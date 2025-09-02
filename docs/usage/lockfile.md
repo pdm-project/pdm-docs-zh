@@ -247,3 +247,11 @@ pdm export -o requirements.txt
 
 !!! TIP
     你也可以用 [`.pre-commit` hook](./advanced.md#hooks-for-pre-commit) 钩子跑 `pdm export`。
+
++++ 2.24.0
+
+此外，PDM 支持导出为 [PEP 751](https://peps.python.org/pep-0751/) 所定义的 `pylock.toml` 格式。执行以下命令可将您的锁定文件转换为符合 PEP 751 标准的格式：
+
+```bash
+pdm export -f pylock -o pylock.toml
+```
