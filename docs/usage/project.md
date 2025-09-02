@@ -65,7 +65,7 @@ pdm python remove 3.9.8
 pdm python install 3.13t
 ```
 
-!!! TIP "与 Rye 共享安装"
+!!! tip "与 Rye 共享安装"
 
   PDM 使用与 [Rye](https://rye-up.com) 相同的源来安装 Python 解释器。如果您同时使用 Rye，则可以将 `python.install_root` 指向与 Rye 相同的目录以共享 Python 解释器：
 
@@ -173,7 +173,7 @@ PDM 提供了 `import` 命令，因此您不必手动初始化项目，它现在
 此外，当您执行 [`pdm init`](../reference/cli.md#init)  或 [`pdm install`](../reference/cli.md#install) 时，如果您的 PDM 项目尚未初始化，PDM 可以自动检测可能要导入的文件。
 
 !!! info
-转换一个 `setup.py` 将使用项目解释器执行文件。确保 `setuptools`与解释器一起安装，并且 是可信的 `setup.py`。
+  转换一个 `setup.py` 将使用项目解释器执行文件。确保 `setuptools`与解释器一起安装，并且 是可信的 `setup.py`。
 
 ## 使用版本控制
 

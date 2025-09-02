@@ -9,7 +9,7 @@ PDM 仅从名为 `pdm.lock` 的现有锁定文件安装软件包。此文件是�
 
 若要创建或覆盖锁定文件，请运行 [`pdm lock`](../reference/cli.md#lock),它支持与 [`pdm add`](../reference/cli.md#add) 相同的 [更新策略](./dependency.md#about-update-strategy)。此外 [`pdm install`](../reference/cli.md#install) 和 [`pdm add`](../reference/cli.md#add) 命令还将自动创建 `pdm.lock` 文件。
 
-??? NOTE "我应该添加到 `pdm.lock` 版本控制吗？"
+??? note "我应该添加到 `pdm.lock` 版本控制吗？"
 
     这要视情况而定。如果目标是使 CI 使用与本地开发相同的依赖项版本并避免意外失败，则应将该 `pdm.lock` 文件添加到版本控制中。否则，如果你的项目是一个库，并且你希望 CI 模拟用户站点上的安装，以确保 PyPI 上的当前版本不会破坏任何内容，则不要提交该 `pdm.lock` 文件。
 
@@ -148,7 +148,7 @@ pdm lock --strategy static_urls
 
 例如，如果在 `pyproject.toml` 中指定 `flask>=2.0`, `flask` 则在没有其他兼容性问题的情况下，将解析为版本 `2.0.0`。
 
-!!! NOTE
+!!! note
     包依赖项中的版本约束不是面向未来的。如果将依赖项解析为最低版本，则可能会出现向后兼容性问题。
     例如， `flask==2.0.0` 需要 `werkzeug>=2.0`，但实际上它不能与 `Werkzeug 3.0.0`一起使用 ，后者在它发布 2 年后发布。
 

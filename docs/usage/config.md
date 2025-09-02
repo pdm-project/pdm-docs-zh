@@ -133,7 +133,7 @@ pdm config pypi.extra.url "https://pypi.python.org/simple/"
 
 您可以将 `pypi.ignore_stored_index` 设置为 `true`，以禁用 PDM 配置中的所有其他索引，并仅使用在 `pyproject.toml` 中指定的索引。
 
-!!! TIP "禁用默认 PyPI 索引"
+!!! tip "禁用默认 PyPI 索引"
     如果要省略默认的 PyPI 索引，只需将源名称设置为 `pypi` ，该源将**替换**它。
 
     ```toml
@@ -288,11 +288,11 @@ export PDM_PUBLISH_CA_CERTS=...
 
 PEM 编码的证书颁发机构捆绑包 （ `ca_certs` ） 可用于本地/自定义 PyPI 存储库，其中服务器证书未由标准 [certifi](https://github.com/certifi/python-certifi/blob/master/certifi/cacert.pem) CA 捆绑包签名。
 
-!!! NOTE
+!!! note
     存储库与上一节中的索引不同。
     存储库用于发布，而索引用于锁定和解析。它们不共享配置。
 
-!!! TIP
+!!! tip
     您无需配置 `pypi` 和 `testpypi` 仓库的 URL，它们已填充默认值。
     用户名、密码和证书颁发机构捆绑包可以通过命令行传递给 `pdm publish`，分别使用 `--username`、`--password` 和 `--ca-certs`。
 

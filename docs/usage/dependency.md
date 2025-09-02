@@ -162,14 +162,14 @@ doc = ["mkdocs"]
 
 为了向后兼容，如果只指定了 `-d` 或 `--dev`，则依赖项将默认进入 `[dependency-groups]` 下的 `dev` 组。
 
-!!! NOTE
+!!! note
     相同的组名不能同时出现在 `[dependency-groups]` 和 `[project.optional-dependencies]` 中。
 
 ### 可编辑的依赖项
 
 **本地目录** 和 **VCS 依赖项** 可以以 [可编辑模式](https://pip.pypa.io/en/stable/cli/pip_install/#editable-installs) 安装。如果您熟悉 `pip`，那么这就像是 `pip install -e <package>`。可编辑包仅允许在开发依赖项中使用：
 
-!!! NOTE
+!!! note
     只有在 `dev` 依赖组中允许可编辑安装。其他组，包括默认组，将以 `[PdmUsageError]` 失败。
 
 ```bash
