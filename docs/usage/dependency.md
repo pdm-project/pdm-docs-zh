@@ -109,6 +109,12 @@ pdm add "git+https://github.com/owner/repo.git@master#egg=pkg&subdirectory=subpa
 pdm add "wheel @ git+ssh://git@github.com/pypa/wheel.git@main"
 ```
 
+或者使用短格式的非 URI 形式，这种形式会用冒号（`:`）分隔主机（host）和路径（path）：
+
+```bash
+pdm add "wheel @ git+git@github.com:pypa/wheel.git@main"
+```
+
 ### 在 URL 中隐藏凭据
 
 您可以使用 `${ENV_VAR}` 变量语法在 URL 中隐藏凭据：
