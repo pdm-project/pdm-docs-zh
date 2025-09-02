@@ -136,10 +136,9 @@ usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d 
 === "asdf"
 
     假设您已经安装了 [asdf](https://asdf-vm.com/)。
-
     ```
     asdf plugin add pdm
-    asdf local pdm latest
+    asdf install pdm latest
     asdf install pdm
     ```
 
