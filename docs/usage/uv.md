@@ -28,4 +28,5 @@ pdm config python.install_root $(uv python dir)
 - 不支持除 `all` 和 `reuse` 之外的更新策略。
 - 可编辑需求必须是本地路径。像 `-e git+<git_url>` 这样的需求不被支持。
 - `[tool.pdm.resolution]` 下的 `excludes` 设置不被支持。
-- uv 解析器不支持跨平台锁定目标，即，你无法针对与当前平台不同的平台进行锁定操作。
+- uv 解析器不需要跨平台的锁定目标（Cross-platform lock targets），uv 始终生成通用的锁定文件（universal lock files）。
+- 不支持 [tool.pdm.source] 配置项下的 include_packages 和 exclude_packages 设置。
