@@ -1,17 +1,17 @@
 # 从模板创建项目
 
 从模板创建项目
-类似于 `yarn create` 和 `npm create`，PDM 也支持从模板初始化或创建项目。模板作为 `pdm init` 的位置参数给出，可以采用以下形式之一：
+类似于 `yarn create` 和 `npm create`，PDM 也支持从模板初始化或创建项目。模板作为 `pdm new` 的位置参数给出，可以采用以下形式之一：
 
-- `pdm init django` - 从模板 `https://github.com/pdm-project/template-django` 初始化项目
-- `pdm init https://github.com/frostming/pdm-template-django` - 从 Git URL 初始化项目。可以接受 HTTPS 和 SSH URL。
-- `pdm init django@v2` - 检出特定的分支或标签。完整的 Git URL 也支持这样做。
-- `pdm init /path/to/template` - 从本地文件系统上的模板目录初始化项目。
-- `pdm init minimal` - 使用内置的 "最小" 模板初始化，只生成一个 `pyproject.toml`.
+- `pdm new django  my-project` - 从模板 `https://github.com/pdm-project/template-django` 创建一个新的项目
+- `pdm new https://github.com/frostming/pdm-template-django my-project` - 从 Git URL 初始化项目。可以接受 HTTPS 和 SSH URL。
+- `pdm new django@v2 my-project` - 检出特定的分支或标签。完整的 Git URL 也支持这样做。
+- `pdm new /path/to/template my-project` - 从本地文件系统上的模板目录初始化项目。
+- `pdm new minimal my-project` - 使用内置的 "最小" 模板初始化，只生成一个 `pyproject.toml`.
 
-`pdm init` 将使用内置的默认模板。
+`pdm new my-project` 命令将使用内置的默认模板，并在指定路径下创建一个项目。
 
-项目将在当前目录初始化，同名的现有文件将被覆盖。您还可以使用 `-p <path>` 选项在新路径下创建项目。
+`pdm init` 命令也支持相同的模板参数。项目将在当前目录下完成初始化，若存在同名文件，将会被覆盖。
 
 ## 贡献模板
 

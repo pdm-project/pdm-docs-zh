@@ -1,14 +1,22 @@
 # 新建项目
 
-首先，使用以下命令 [`pdm init`](../reference/cli.md#init) 创建一个新项目：
+首先，使用以下命令 [`pdm new`](../reference/cli.md#new) 创建一个新项目：
 
 ```bash
-mkdir my-project && cd my-project
-pdm init
+pdm new my-project
 ```
 
 您需要回答几个问题，以帮助 PDM 为您创建 `pyproject.toml` 文件。
-有关 `pdm init` 更多用法，请阅读 [从模板创建项目](./template.md)。
+有关 `pdm new` 更多用法，请阅读 [从模板创建项目](./template.md)。
+
+## 为现有项目创建 pyproject.toml 文件
+
+如果您已拥有一个项目，并且希望为其创建 `pyproject.toml` 文件，可以使用 [`pdm init`](../reference/cli.md#init)命令:
+
+```bash
+cd my-project
+pdm init
+```
 
 ## 选择 Python 解释器
 
