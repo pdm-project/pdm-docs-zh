@@ -20,13 +20,14 @@ pdm publish --repository https://test.pypi.org/legacy/
 ## 使用受信任的发布者发布
 
 可以为 PyPI 配置受信任的发布者，这样就不需要在发布工作流中公开 PyPI 令牌。
-为此，请按照[指南](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)添加发布者并编写 GitHub Actions 工作流，如下所示：
+添加发布者的[指南](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)中要求编写如下操作（代码 / 配置）：
+
+### GitHub Actions
 
 ```yaml
 on:
   release:
     types: [published]
-
 
 jobs:
   pypi-publish:
@@ -44,6 +45,23 @@ jobs:
 
       - name: Publish package distributions to PyPI
         run: pdm publish
+```
+
+### GitLab CI
+
+```yaml
+image: python:3.12-bookworm
+before_script:
+  - pip install pdm
+
+publish-package:
+  stage: release
+  environment: production
+  id_tokens:
+    PYPI_ID_TOKEN: # for testpypi: TESTPYPI_ID_TOKEN
+      aud: "pypi" # testpypi
+  script:
+    - pdm publish
 ```
 
 ## 单独生成和发布
