@@ -17,8 +17,12 @@ pdm init
 
 或者，您可以通过 `PDM_PYTHON`环境变量指定 Python 解释器路径。设置后，保存的 `.pdm-python` 路径将被忽略。
 
++++ 2.23.0
+
+如果项目根目录中存在 `.python-version` 文件，或者已设置 `PDM_PYTHON_VERSION` 环境变量，PDM 将使用其中指定的 Python 版本。该文件或环境变量需包含有效的 Python 版本字符串，例如 `3.11`。
+
 !!! warning "使用现有环境"
-如果您选择使用现有环境，例如重复使用由 `conda` 创建的环境，请注意，在运行 `pdm sync --clean` 或 `pdm remove` 时，PDM 将 _删除_ 未在 `pyproject.toml` 或 `pdm.lock` 中列出的依赖项。这可能会导致破坏性后果。因此，尽量不要在多个项目之间共享环境。
+如果您选择使用现有环境（例如复用由 `conda` 创建的环境），请注意：当运行 `pdm sync --clean` 或 `pdm remove` 命令时，PDM 会_移除_所有未在 `pyproject.toml` 或 `pdm.lock` 中列出的依赖项。这可能会导致破坏性后果（即环境中原有未被项目依赖文件记录的依赖会被删除）。因此，尽量不要在多个项目之间共享同一个环境。
 
 ### 使用 PDM 安装 Python 解释器
 
