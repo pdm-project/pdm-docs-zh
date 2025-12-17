@@ -1,8 +1,11 @@
-# pdm-docs-zh
+<div align="center">
 
-PDM 中文文档（社区维护）
+# PDM 中文文档（社区维护）
+
+![PDM logo](https://raw.githubusercontent.com/pdm-project/pdm/main/docs/assets/logo_big.png)
 
 [📖 查看文档](https://pdm-project.org/zh-cn/)
+</div>
 
 ## 维护者
 

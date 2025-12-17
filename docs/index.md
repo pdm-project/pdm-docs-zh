@@ -15,7 +15,7 @@
 - 根据 [PEP 621] 规范解析项目元数据。
 - 灵活而强大的插件系统。
 - 多功能用户脚本。
-- 使用 [indygreg's python-build-standalone](https://github.com/indygreg/python-build-standalone)进行安装其他版本的 Python。
+- 使用 [indygreg's python-build-standalone](https://github.com/astral-sh/python-build-standalone)进行安装其他版本的 Python。
 - 选择加入集中式安装缓存，参考 [pnpm]。
 
 [pep 517]: https://www.python.org/dev/peps/pep-0517
@@ -65,7 +65,7 @@ curl -sSL https://pdm-project.org/install-pdm.py.sha256 | shasum -a 256 -c -
 python3 install-pdm.py [options]
 ```
 
-安装程序会将 PDM 安装到用户家目录中，位置取决于系统：
+安装程序会将 PDM 安装到当前用户目录中，位置取决于系统：
 
 - `$HOME/.local/bin` Unix 系统
 - `$HOME/Library/Python/<version>/bin` MacOS 系统
@@ -77,13 +77,12 @@ python3 install-pdm.py [options]
 usage: install-pdm.py [-h] [-v VERSION] [--prerelease] [--remove] [-p PATH] [-d DEP]
 
 可选参数:
-  -h, --help            显示帮助信息并退出
-  -v VERSION, --version VERSION | envvar: PDM_VERSION
-                        指定要安装的版本，或使用 HEAD 从主分支安装
-  --prerelease | envvar: PDM_PRERELEASE    允许安装预发行版本
-  --remove | envvar: PDM_REMOVE            移除 PDM 安装
-  -p PATH, --path PATH | envvar: PDM_HOME  指定安装 PDM 的位置
-  -d DEP, --dep DEP | envvar: PDM_DEPS     指定额外的依赖项，可以多次指定
+  -h, --help                                               显示帮助信息并退出
+  -V VERSION, --version VERSION | envvar: PDM_VERSION      指定要安装的版本,或使用 HEAD 从主分支安装
+  --prerelease | envvar: PDM_PRERELEASE                    允许安装预发行版本
+  --remove | envvar: PDM_REMOVE                            移除 PDM 安装
+  -p PATH, --path PATH | envvar: PDM_HOME                  指定安装 PDM 的位置
+  -d DEP, --dep DEP | envvar: PDM_DEPS                     指定额外的依赖项,可以多次指定
 ```
 
 您可以在运行的安装脚本命令的后面传递选项，也可以设置环境变量 env var 值。
@@ -200,7 +199,7 @@ pdm self update
 
 ## Shell 命令补全
 
-PDM 支持为 Bash、Zsh、Fish 或 Powershell 生成补全脚本。以下是每个 shell 的一些常见的储存位置：
+PDM 支持为 Bash、Zsh、Fish 或 PowerShell 生成补全脚本。以下是每个 shell 的一些常见的储存位置：
 
 === "Bash"
 
@@ -231,7 +230,7 @@ PDM 支持为 Bash、Zsh、Fish 或 Powershell 生成补全脚本。以下是每
     pdm completion fish > ~/.config/fish/completions/pdm.fish
     ```
 
-=== "Powershell"
+=== "PowerShell"
 
     ```ps1
     # 创建一个目录来存储补全脚本。
