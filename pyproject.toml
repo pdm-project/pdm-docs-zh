@@ -19,6 +19,7 @@ doc = [
     "mkdocs-material>=7.3",
     "mkdocstrings[python]>=0.18",
     "setuptools>=62.3.3",
+    "mkdocs-redirects>=1.2.0",
     "markdown-exec>=0.7.0",
     "mkdocs-version-annotations>=1.0.0",
     "pdm[pytest] @ git+https://github.com/pdm-project/pdm.git@main",
