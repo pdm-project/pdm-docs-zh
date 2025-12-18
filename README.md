@@ -54,7 +54,7 @@ python ...\msgfmt.py .\locale\zh-CN\LC_MESSAGES\cli.po
 
 * * *
 
-PDM Docs © 2024 by [PDM maintainers][1] is licensed under [CC BY 4.0][2].
+PDM Docs © 2025 by [PDM maintainers][1] is licensed under [CC BY 4.0][2].
 
 [1]: https://github.com/pdm-project
 [2]: https://creativecommons.org/licenses/by/4.0/
