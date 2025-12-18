@@ -139,4 +139,4 @@ extra_javascript:
   - assets/extra.js
 
 watch:
-  - src
+  - docs
