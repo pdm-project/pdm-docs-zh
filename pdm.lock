@@ -4,8 +4,11 @@
 [metadata]
 groups = ["default", "doc"]
 strategy = ["cross_platform", "inherit_metadata"]
-lock_version = "4.4.2"
-content_hash = "sha256:556b69b45ba74963cf9a4e6483b7e197817c5edfe76cf1ebe634f70a69e0402f"
+lock_version = "4.5.0"
+content_hash = "sha256:93637c30aed72aec55aad742939470ba20d9213f40a48b4d589ceef5fda7a354"
+
+[[metadata.targets]]
+requires_python = ">=3.8"
 
 [[package]]
 name = "anyio"
@@ -647,6 +650,20 @@ files = [
 ]
 
 [[package]]
+name = "mkdocs-redirects"
+version = "1.2.2"
+requires_python = ">=3.8"
+summary = "A MkDocs plugin for dynamic page redirects to prevent broken links"
+groups = ["doc"]
+dependencies = [
+    "mkdocs>=1.1.1",
+]
+files = [
+    {file = "mkdocs_redirects-1.2.2-py3-none-any.whl", hash = "sha256:7dbfa5647b79a3589da4401403d69494bd1f4ad03b9c15136720367e1f340ed5"},
+    {file = "mkdocs_redirects-1.2.2.tar.gz", hash = "sha256:3094981b42ffab29313c2c1b8ac3969861109f58b2dd58c45fc81cd44bfa0095"},
+]
+
+[[package]]
 name = "mkdocs-version-annotations"
 version = "1.0.0"
 requires_python = ">=3.7,<4.0"
@@ -864,6 +881,7 @@ revision = "12cb78faf03ded35e8cf2a4c65e488600ac27572"
 summary = "A modern Python package and dependency manager supporting the latest PEP standards"
 groups = ["doc"]
 dependencies = [
+    "pdm @ git+https://github.com/pdm-project/pdm.git@12cb78faf03ded35e8cf2a4c65e488600ac27572",
     "pdm @ git+https://github.com/pdm-project/pdm.git@main",
     "pytest",
     "pytest-mock",
